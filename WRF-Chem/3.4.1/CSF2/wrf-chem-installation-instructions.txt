@@ -1,0 +1,145 @@
+# First step is to compile the libraries required by WRF.
+
+# Compile libraries
+. compile-wrf-chem-libs.sh
+# This script runs the wrf-chem-libs-env.sh script, so it sets environment variables for libraries
+
+# WRF Build
+# =========
+
+# For users, we need modulefiles for the zlib, nhdf5 and netcdf builds.
+# But in the meantime, this is what we need (which assumes you've 
+# set all of the vars from the above initial setup stage):
+
+# Set enviroment variables for applications
+. wrf-chem-apps-env.sh
+
+# Create directories for WRF installation (also sets environment variables by sourcing wrf-chem-apps-env.sh)
+. wrf-chem-apps-make-dirs.sh
+
+# Config and compile
+cd $WROOT
+vi arch/Config_new.pl
+   # Search for $I_really_want_to_output_grib2_from_WRF = "FALSE" ;
+   # Set it to "TRUE" - the Config_new.pl scripts tells you to do this for jasper jpeg output!!
+   $I_really_want_to_output_grib2_from_WRF = "TRUE" ;
+# Save the above file. Then run configure:
+./configure
+# Choose:
+  #   Option 15.  Linux x86_64 i486 i586 i686, ifort compiler with icc  (dmpar)
+  #   Option 1: Basic nesting
+# Edit configure.wrf to add "-tp bulldozer" and "-fast" to various options:
+vi configure.wrf
+    SFC             =       ifort -xCORE-AVX2
+    SCC             =       icc -xCORE-AVX2
+    CCOMP           =       icc -xCORE-AVX2
+    DM_FC           =       mpif90 -f90=ifort -xCORE-AVX2
+    DM_CC           =       mpicc -cc=icc -xCORE-AVX2 -DMPI2_SUPPORT 
+    CFLAGS_LOCAL    =       -w -O3 -ip -xCORE-AVX2
+    FCOPTIM         =       -O3 -xCORE-AVX2
+# Save the above file.
+
+# WRF-Chem 3.4.1. specific problems
+# ==================================
+# YACC is not installed on ARCHER - instead the "yacc" command points to the BISON program,
+# which does not process the KPP source files properly ("y.tab.h" is not produced from the 
+# "scan.y" file).
+# To get around this we have to install (and point to) our own YACC installation.
+# define the path to the YACC install in "chem/KPP/configure_kpp", e.g.:
+# YACC=/nerc/n02/n02/lowe/WRF-CHEM_Compiling/archer/byacc/yacc -d
+# YACC is installed on CSF, but for some reason doesn't work with this version of KPP.
+# Upshot is that you have to download and build your own version.
+# See main bullet 3 here for instructions:
+# http://wiki.rac.manchester.ac.uk/community/WRF/public/Installation/ARCHER
+# If you have already tried to use the default YACC, you might need to clean the directory
+# in order that your newly compiled YACC can be used by the Makefile:
+# ./clean -a
+
+# Flex generates lex.yy.c using the rules in scan.l, but this version of kpp doesn't work
+# properly with modern versions of flex, and so the lex.yy.c file won't be built correctly. 
+# Old versions of flex don't seem to be readily available, so the work around is to copy a 
+# precompiled lex.yy.c file to $APPS/WRF/$WVER/WRFV3/chem/KPP/kpp/kpp-2.1/src
+# If the file already exists, then Make won't try to build it -problem avoided.
+# However, KPP requires compatible flex libraries to dynamically call when it is running
+# and this precompiled version of the lex.yy.c file requires version 2.5.35 of flex, so you
+# have to build that from source, so that it has flex at run time.
+# It also won't work correctly with the default installation of byacc, so download the source
+# code and build that yourself too. i
+
+# I got this error message: make: integr_edit.exe: Command not found
+# The fix is reported here: http://forum.wrfforum.com/viewtopic.php?f=39&t=3302
+#	You need to edit chem/KPP/util/write_decomp/Makefile like this :
+#	Find the line
+#	integr_edit.exe $(MECH)
+#	and replace it with
+#	./integr_edit.exe $(MECH)
+
+# I also edited the makefile according to the instructions on the wiki page (removing -ll flags)
+
+
+# Now compile wrf and real:
+# ./compile -j 4 em_real 2>&1 | tee compile-em_real-csf-parallel.log
+# Parallel build usualy fails.
+# If something fails (often linking due to parallel compilation) try a serial pass
+./compile -j 1 em_real 2>&1 | tee -a compile-em_real-csf-serial.log
+
+# See what we have
+ls main/*.exe
+# Should see:
+#      main/ndown.exe  main/nup.exe  main/real.exe  main/tc.exe  main/wrf.exe
+
+# WPS Build
+# =========
+cd $APPS/WRF/$WVER
+tar -xzvf 
+
+# No patches to install
+cp WPS/geogrid/src/output_module.F WPS/geogrid/src/output_module.F.orig
+cp WPS/geogrid/src/output_module.F.orig archive/WPS
+cp WPS/geogrid/src/output_module.F.orig archive/WPS
+cd WPS
+./configure
+# Choose:
+    # Option 19.  Linux x86_64, Intel compiler    (dmpar)
+
+# Edit configure.wps to add AVX flags
+vi configure.wps
+    SFC                 = ifort -xCORE-AVX2
+    SCC                 = icc -xCORE-AVX2
+    DM_FC               = mpif90 -f90=ifort -xCORE-AVX2
+    DM_CC               = mpicc -cc=icc -xCORE-AVX2
+# Save the above file.
+# Now compile wps
+./compile 2>&1 | tee compile-wps-csf.log
+
+# WPS static geography data
+# -------------------------
+cd $APPS/WRF/$WVER
+mkdir WPS_GEOG
+cd WPS_GEOG
+tar xjf ../archive/WPS/geog_complete.tar.bz2
+# Now install the update over the top
+tar xjf ../archive/WPS/geog_new3.7.tar.bz2
+# Now edit the namelist files in the WPS installation.
+# The geog_data_path setting needs changing.
+# Ensure you have $APPS set to the root of where you're doing the WRF builds
+# as per the setup instructions at the very start of this page.
+cd ../WPS
+for i in namelist*; do sed -i -e "s@geog_data_path = .*@geog_data_path = '$APPS/WRF/$WVER/WPS_GEOG/'@g" $i ; done
+
+# ncl
+# ===
+# See top of page for download link
+
+# We are going to install a binary (pre-compiled) version because of the large number of dependencies. This is a gcc version so can be run on any compute node on the CSF. If it isn't fast enough we'll look at doing a Bulldozer build from source but that may take a while.
+
+cd $APPS
+mkdir -p ncl/6.3.0 ncl/archive
+cd ncl/6.3.0
+cp $NCL_FILE $APPS/ncl/archive
+tar xzf ../archive/ncl_ncarg-6.3.0.Linux_RHEL6.4_x86_64_nodap_gcc447.tar.gz 
+
+
+# Before use, in environment or CSF modulefile you must set:
+export NCARG_ROOT=$APPS/ncl/6.3.0
+
