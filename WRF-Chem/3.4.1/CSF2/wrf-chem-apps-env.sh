@@ -29,6 +29,8 @@ export WRFIO_NCD_LARGE_FILE_SUPPORT=1
 export NETCDF4=1
 export FLEX_LIB_DIR=$FLEXROOT/lib
 export WRF_KPP=1
+export WRF_CHEM=1
+export ENVCOMPDEFS="-DWRF_CHEM -DBUILD_CHEM=1 -DWRF_KPP"
 
 # WRF requires MPI_ROOT
 # OpenMPI module was loaded during libs set up
