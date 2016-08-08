@@ -1,0 +1,23 @@
+# These steps are required for all wrf-chem runs:
+--------------------------------------------------
+export rundir=<where you run the job from>
+cp $WROOT/run $rundir
+rm *.exe 
+for exe in $(ls $WROOT/run/*.exe);do ln -s $exe;done
+
+# These steps depend on the simulation being run:
+--------------------------------------------------
+cp namelist.input $rundir
+cp met_em* $rundir
+cp wrfchemi_d01* $rundir
+
+# wrf.exe wants a file for each hour.
+# Create links to the midnight files for each subsequent hour as required.
+. wrfchemi_link.sh
+
+echo "+:h:0:ccn1,ccn2,ccn3,ccn4,ccn5,ccn6" > add_remove_var.txt
+
+cp add_remove_var.txt $rundir
+cp wrfinput_d01 $rundir
+cp wrfbdy_d01 $rundir
+cp wrflowinp_d01 $rundir
