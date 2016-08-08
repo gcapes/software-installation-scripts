@@ -1,0 +1,154 @@
+Script started on Mon 08 Aug 2016 13:38:27 BST
+[01;32mgerard@gerard-ThinkPad-X250[01;34m ~ $[00m sudo apt-get install ruby2.0
+[sudo] password for gerard: 
+Reading package lists... 0%Reading package lists... 100%Reading package lists... Done
+Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 50%Building dependency tree... 50%Building dependency tree       
+Reading state information... 0%Reading state information... 0%Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  libgsoap4 liblua5.1-0 libvncserver0 pandoc-data
+Use 'apt-get autoremove' to remove them.
+The following extra packages will be installed:
+  libjs-jquery libruby1.9.1 libruby2.0 ruby ruby1.9.1 rubygems-integration
+Suggested packages:
+  javascript-common ri ruby-dev ruby1.9.1-examples ri1.9.1 graphviz
+  ruby1.9.1-dev ruby-switch bundler
+The following NEW packages will be installed
+  libjs-jquery libruby1.9.1 libruby2.0 ruby ruby1.9.1 ruby2.0
+  rubygems-integration
+0 to upgrade, 7 to newly install, 0 to remove and 9 not to upgrade.
+Need to get 5,642 kB of archives.
+After this operation, 26.7 MB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+0% [Working]            Get:1 http://archive.ubuntu.com/ubuntu/ trusty/main libjs-jquery all 1.7.2+dfsg-2ubuntu1 [78.8 kB]
+            0% [1 libjs-jquery 12.6 kB/78.8 kB 16%]                                       1% [Working]            Get:2 http://archive.ubuntu.com/ubuntu/ trusty/main ruby all 1:1.9.3.4 [5,334 B]
+            1% [2 ruby 2,296 B/5,334 B 43%]                               1% [Working]            Get:3 http://archive.ubuntu.com/ubuntu/ trusty-updates/main ruby1.9.1 amd64 1.9.3.484-2ubuntu1.2 [35.6 kB]
+            2% [3 ruby1.9.1 12.6 kB/35.6 kB 35%]                                    2% [Working]            Get:4 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libruby1.9.1 amd64 1.9.3.484-2ubuntu1.2 [2,645 kB]
+            2% [4 libruby1.9.1 10.2 kB/2,645 kB 0%]                                       49% [Working]             Get:5 http://archive.ubuntu.com/ubuntu/ trusty-updates/main libruby2.0 amd64 2.0.0.484-1ubuntu2.2 [2,805 kB]
+             49% [5 libruby2.0 13.9 kB/2,805 kB 0%]                                      99% [Working]             Get:6 http://archive.ubuntu.com/ubuntu/ trusty-updates/main ruby2.0 amd64 2.0.0.484-1ubuntu2.2 [66.5 kB]
+             99% [6 ruby2.0 2,294 B/66.5 kB 3%]                                  100% [Working]              Get:7 http://archive.ubuntu.com/ubuntu/ trusty/main rubygems-integration all 1.5 [5,340 B]
+              100% [7 rubygems-integration 5,340 B/5,340 B 100%]                                                  100% [Working]              Fetched 5,642 kB in 0s (7,816 kB/s)
+Selecting previously unselected package libjs-jquery.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 173525 files and directories currently installed.)
+Preparing to unpack .../libjs-jquery_1.7.2+dfsg-2ubuntu1_all.deb ...
+Unpacking libjs-jquery (1.7.2+dfsg-2ubuntu1) ...
+Selecting previously unselected package ruby.
+Preparing to unpack .../ruby_1%3a1.9.3.4_all.deb ...
+Unpacking ruby (1:1.9.3.4) ...
+Selecting previously unselected package ruby1.9.1.
+Preparing to unpack .../ruby1.9.1_1.9.3.484-2ubuntu1.2_amd64.deb ...
+Unpacking ruby1.9.1 (1.9.3.484-2ubuntu1.2) ...
+Selecting previously unselected package libruby1.9.1.
+Preparing to unpack .../libruby1.9.1_1.9.3.484-2ubuntu1.2_amd64.deb ...
+Unpacking libruby1.9.1 (1.9.3.484-2ubuntu1.2) ...
+Selecting previously unselected package libruby2.0:amd64.
+Preparing to unpack .../libruby2.0_2.0.0.484-1ubuntu2.2_amd64.deb ...
+Unpacking libruby2.0:amd64 (2.0.0.484-1ubuntu2.2) ...
+Selecting previously unselected package ruby2.0.
+Preparing to unpack .../ruby2.0_2.0.0.484-1ubuntu2.2_amd64.deb ...
+Unpacking ruby2.0 (2.0.0.484-1ubuntu2.2) ...
+Selecting previously unselected package rubygems-integration.
+Preparing to unpack .../rubygems-integration_1.5_all.deb ...
+Unpacking rubygems-integration (1.5) ...
+Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
+Setting up libjs-jquery (1.7.2+dfsg-2ubuntu1) ...
+Setting up ruby (1:1.9.3.4) ...
+Setting up ruby1.9.1 (1.9.3.484-2ubuntu1.2) ...
+Setting up libruby1.9.1 (1.9.3.484-2ubuntu1.2) ...
+Setting up rubygems-integration (1.5) ...
+Setting up ruby2.0 (2.0.0.484-1ubuntu2.2) ...
+Setting up libruby2.0:amd64 (2.0.0.484-1ubuntu2.2) ...
+Processing triggers for libc-bin (2.19-0ubuntu6.9) ...
+[01;32mgerard@gerard-ThinkPad-X250[01;34m ~ $[00m sudo apt-get install ruby2.0-dev 
+Reading package lists... 0%Reading package lists... 100%Reading package lists... Done
+Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 50%Building dependency tree... 50%Building dependency tree       
+Reading state information... 0%Reading state information... 0%Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  libgsoap4 liblua5.1-0 libvncserver0 pandoc-data
+Use 'apt-get autoremove' to remove them.
+The following NEW packages will be installed
+  ruby2.0-dev
+0 to upgrade, 1 to newly install, 0 to remove and 9 not to upgrade.
+Need to get 908 kB of archives.
+After this operation, 4,323 kB of additional disk space will be used.
+0% [Working]            Get:1 http://archive.ubuntu.com/ubuntu/ trusty-updates/main ruby2.0-dev amd64 2.0.0.484-1ubuntu2.2 [908 kB]
+            1% [1 ruby2.0-dev 13.5 kB/908 kB 1%]                                    100% [Working]              Fetched 908 kB in 0s (4,353 kB/s)
+Selecting previously unselected package ruby2.0-dev:amd64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 175431 files and directories currently installed.)
+Preparing to unpack .../ruby2.0-dev_2.0.0.484-1ubuntu2.2_amd64.deb ...
+Unpacking ruby2.0-dev:amd64 (2.0.0.484-1ubuntu2.2) ...
+Setting up ruby2.0-dev:amd64 (2.0.0.484-1ubuntu2.2) ...
+[01;32mgerard@gerard-ThinkPad-X250[01;34m ~ $[00m ruby --version
+ruby 2.3.0p0 (2015-12-25 revision 53290) [x86_64-linux]
+[01;32mgerard@gerard-ThinkPad-X250[01;34m ~ $[00m gem2.0 install jekyll[1@s[1@u[1@d[1@o[1@ 
+Fetching: liquid-3.0.6.gemFetching: liquid-3.0.6.gem (  4%)Fetching: liquid-3.0.6.gem (  8%)Fetching: liquid-3.0.6.gem ( 12%)Fetching: liquid-3.0.6.gem ( 16%)Fetching: liquid-3.0.6.gem ( 21%)Fetching: liquid-3.0.6.gem ( 25%)Fetching: liquid-3.0.6.gem ( 29%)Fetching: liquid-3.0.6.gem ( 33%)Fetching: liquid-3.0.6.gem ( 37%)Fetching: liquid-3.0.6.gem ( 42%)Fetching: liquid-3.0.6.gem ( 46%)Fetching: liquid-3.0.6.gem ( 50%)Fetching: liquid-3.0.6.gem ( 75%)Fetching: liquid-3.0.6.gem (100%)Fetching: liquid-3.0.6.gem (100%)
+Successfully installed liquid-3.0.6
+Fetching: kramdown-1.11.1.gemFetching: kramdown-1.11.1.gem (  7%)Fetching: kramdown-1.11.1.gem ( 14%)Fetching: kramdown-1.11.1.gem ( 21%)Fetching: kramdown-1.11.1.gem ( 27%)Fetching: kramdown-1.11.1.gem ( 34%)Fetching: kramdown-1.11.1.gem ( 41%)Fetching: kramdown-1.11.1.gem ( 48%)Fetching: kramdown-1.11.1.gem ( 55%)Fetching: kramdown-1.11.1.gem ( 61%)Fetching: kramdown-1.11.1.gem ( 68%)Fetching: kramdown-1.11.1.gem ( 75%)Fetching: kramdown-1.11.1.gem ( 82%)Fetching: kramdown-1.11.1.gem ( 89%)Fetching: kramdown-1.11.1.gem ( 95%)Fetching: kramdown-1.11.1.gem (100%)Fetching: kramdown-1.11.1.gem (100%)
+Successfully installed kramdown-1.11.1
+Fetching: mercenary-0.3.6.gemFetching: mercenary-0.3.6.gem ( 93%)Fetching: mercenary-0.3.6.gem (100%)Fetching: mercenary-0.3.6.gem (100%)
+Successfully installed mercenary-0.3.6
+Fetching: safe_yaml-1.0.4.gemFetching: safe_yaml-1.0.4.gem ( 52%)Fetching: safe_yaml-1.0.4.gem (100%)Fetching: safe_yaml-1.0.4.gem (100%)
+Successfully installed safe_yaml-1.0.4
+Fetching: colorator-1.1.0.gemFetching: colorator-1.1.0.gem (100%)Fetching: colorator-1.1.0.gem (100%)
+Successfully installed colorator-1.1.0
+Fetching: rouge-1.11.1.gemFetching: rouge-1.11.1.gem (  8%)Fetching: rouge-1.11.1.gem ( 16%)Fetching: rouge-1.11.1.gem ( 23%)Fetching: rouge-1.11.1.gem ( 31%)Fetching: rouge-1.11.1.gem ( 39%)Fetching: rouge-1.11.1.gem ( 46%)Fetching: rouge-1.11.1.gem ( 54%)Fetching: rouge-1.11.1.gem ( 62%)Fetching: rouge-1.11.1.gem ( 70%)Fetching: rouge-1.11.1.gem ( 77%)Fetching: rouge-1.11.1.gem ( 85%)Fetching: rouge-1.11.1.gem ( 93%)Fetching: rouge-1.11.1.gem (100%)Fetching: rouge-1.11.1.gem (100%)
+Successfully installed rouge-1.11.1
+Fetching: sass-3.4.22.gemFetching: sass-3.4.22.gem (  5%)Fetching: sass-3.4.22.gem ( 10%)Fetching: sass-3.4.22.gem ( 14%)Fetching: sass-3.4.22.gem ( 19%)Fetching: sass-3.4.22.gem ( 24%)Fetching: sass-3.4.22.gem ( 28%)Fetching: sass-3.4.22.gem ( 33%)Fetching: sass-3.4.22.gem ( 38%)Fetching: sass-3.4.22.gem ( 43%)Fetching: sass-3.4.22.gem ( 47%)Fetching: sass-3.4.22.gem ( 52%)Fetching: sass-3.4.22.gem ( 57%)Fetching: sass-3.4.22.gem ( 61%)Fetching: sass-3.4.22.gem ( 66%)Fetching: sass-3.4.22.gem ( 71%)Fetching: sass-3.4.22.gem ( 75%)Fetching: sass-3.4.22.gem ( 80%)Fetching: sass-3.4.22.gem ( 85%)Fetching: sass-3.4.22.gem ( 89%)Fetching: sass-3.4.22.gem ( 94%)Fetching: sass-3.4.22.gem ( 99%)Fetching: sass-3.4.22.gem (100%)Fetching: sass-3.4.22.gem (100%)
+Successfully installed sass-3.4.22
+Fetching: jekyll-sass-converter-1.4.0.gemFetching: jekyll-sass-converter-1.4.0.gem (100%)Fetching: jekyll-sass-converter-1.4.0.gem (100%)
+Successfully installed jekyll-sass-converter-1.4.0
+Fetching: rb-fsevent-0.9.7.gemFetching: rb-fsevent-0.9.7.gem ( 31%)Fetching: rb-fsevent-0.9.7.gem ( 63%)Fetching: rb-fsevent-0.9.7.gem ( 94%)Fetching: rb-fsevent-0.9.7.gem (100%)Fetching: rb-fsevent-0.9.7.gem (100%)
+Successfully installed rb-fsevent-0.9.7
+Fetching: ffi-1.9.14.gemFetching: ffi-1.9.14.gem (  2%)Fetching: ffi-1.9.14.gem (  4%)Fetching: ffi-1.9.14.gem (  6%)Fetching: ffi-1.9.14.gem (  8%)Fetching: ffi-1.9.14.gem ( 10%)Fetching: ffi-1.9.14.gem ( 12%)Fetching: ffi-1.9.14.gem ( 13%)Fetching: ffi-1.9.14.gem ( 15%)Fetching: ffi-1.9.14.gem ( 17%)Fetching: ffi-1.9.14.gem ( 19%)Fetching: ffi-1.9.14.gem ( 21%)Fetching: ffi-1.9.14.gem ( 23%)Fetching: ffi-1.9.14.gem ( 24%)Fetching: ffi-1.9.14.gem ( 26%)Fetching: ffi-1.9.14.gem ( 28%)Fetching: ffi-1.9.14.gem ( 30%)Fetching: ffi-1.9.14.gem ( 32%)Fetching: ffi-1.9.14.gem ( 34%)Fetching: ffi-1.9.14.gem ( 36%)Fetching: ffi-1.9.14.gem ( 37%)Fetching: ffi-1.9.14.gem ( 39%)Fetching: ffi-1.9.14.gem ( 41%)Fetching: ffi-1.9.14.gem ( 43%)Fetching: ffi-1.9.14.gem ( 45%)Fetching: ffi-1.9.14.gem ( 47%)Fetching: ffi-1.9.14.gem ( 49%)Fetching: ffi-1.9.14.gem ( 50%)Fetching: ffi-1.9.14.gem ( 52%)Fetching: ffi-1.9.14.gem ( 54%)Fetching: ffi-1.9.14.gem ( 56%)Fetching: ffi-1.9.14.gem ( 58%)Fetching: ffi-1.9.14.gem ( 60%)Fetching: ffi-1.9.14.gem ( 62%)Fetching: ffi-1.9.14.gem ( 63%)Fetching: ffi-1.9.14.gem ( 65%)Fetching: ffi-1.9.14.gem ( 67%)Fetching: ffi-1.9.14.gem ( 69%)Fetching: ffi-1.9.14.gem ( 71%)Fetching: ffi-1.9.14.gem ( 73%)Fetching: ffi-1.9.14.gem ( 74%)Fetching: ffi-1.9.14.gem ( 76%)Fetching: ffi-1.9.14.gem ( 78%)Fetching: ffi-1.9.14.gem ( 80%)Fetching: ffi-1.9.14.gem ( 82%)Fetching: ffi-1.9.14.gem ( 84%)Fetching: ffi-1.9.14.gem ( 86%)Fetching: ffi-1.9.14.gem ( 87%)Fetching: ffi-1.9.14.gem ( 89%)Fetching: ffi-1.9.14.gem ( 91%)Fetching: ffi-1.9.14.gem ( 93%)Fetching: ffi-1.9.14.gem ( 95%)Fetching: ffi-1.9.14.gem ( 97%)Fetching: ffi-1.9.14.gem ( 99%)Fetching: ffi-1.9.14.gem (100%)Fetching: ffi-1.9.14.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed ffi-1.9.14
+Fetching: rb-inotify-0.9.7.gemFetching: rb-inotify-0.9.7.gem ( 15%)Fetching: rb-inotify-0.9.7.gem ( 34%)Fetching: rb-inotify-0.9.7.gem ( 53%)Fetching: rb-inotify-0.9.7.gem ( 73%)Fetching: rb-inotify-0.9.7.gem ( 92%)Fetching: rb-inotify-0.9.7.gem (100%)Fetching: rb-inotify-0.9.7.gem (100%)
+Successfully installed rb-inotify-0.9.7
+Fetching: listen-3.0.8.gemFetching: listen-3.0.8.gem (  8%)Fetching: listen-3.0.8.gem ( 18%)Fetching: listen-3.0.8.gem ( 28%)Fetching: listen-3.0.8.gem ( 38%)Fetching: listen-3.0.8.gem ( 48%)Fetching: listen-3.0.8.gem ( 57%)Fetching: listen-3.0.8.gem (100%)Fetching: listen-3.0.8.gem (100%)
+Successfully installed listen-3.0.8
+Fetching: jekyll-watch-1.5.0.gemFetching: jekyll-watch-1.5.0.gem (100%)Fetching: jekyll-watch-1.5.0.gem (100%)
+Successfully installed jekyll-watch-1.5.0
+Fetching: forwardable-extended-2.6.0.gemFetching: forwardable-extended-2.6.0.gem (100%)Fetching: forwardable-extended-2.6.0.gem (100%)
+Successfully installed forwardable-extended-2.6.0
+Fetching: pathutil-0.14.0.gemFetching: pathutil-0.14.0.gem (100%)Fetching: pathutil-0.14.0.gem (100%)
+Successfully installed pathutil-0.14.0
+Fetching: jekyll-3.2.1.gemFetching: jekyll-3.2.1.gem ( 18%)Fetching: jekyll-3.2.1.gem ( 37%)Fetching: jekyll-3.2.1.gem ( 55%)Fetching: jekyll-3.2.1.gem ( 74%)Fetching: jekyll-3.2.1.gem ( 92%)Fetching: jekyll-3.2.1.gem (100%)Fetching: jekyll-3.2.1.gem (100%)
+Successfully installed jekyll-3.2.1
+Parsing documentation for liquid-3.0.6
+Installing ri documentation for liquid-3.0.6
+Parsing documentation for kramdown-1.11.1
+Installing ri documentation for kramdown-1.11.1
+Parsing documentation for mercenary-0.3.6
+Installing ri documentation for mercenary-0.3.6
+Parsing documentation for safe_yaml-1.0.4
+Installing ri documentation for safe_yaml-1.0.4
+Parsing documentation for colorator-1.1.0
+Installing ri documentation for colorator-1.1.0
+Parsing documentation for rouge-1.11.1
+Installing ri documentation for rouge-1.11.1
+Parsing documentation for sass-3.4.22
+Installing ri documentation for sass-3.4.22
+Parsing documentation for jekyll-sass-converter-1.4.0
+Installing ri documentation for jekyll-sass-converter-1.4.0
+Parsing documentation for rb-fsevent-0.9.7
+Installing ri documentation for rb-fsevent-0.9.7
+Parsing documentation for ffi-1.9.14
+Installing ri documentation for ffi-1.9.14
+Parsing documentation for rb-inotify-0.9.7
+Installing ri documentation for rb-inotify-0.9.7
+Parsing documentation for listen-3.0.8
+Installing ri documentation for listen-3.0.8
+Parsing documentation for jekyll-watch-1.5.0
+Installing ri documentation for jekyll-watch-1.5.0
+Parsing documentation for forwardable-extended-2.6.0
+Installing ri documentation for forwardable-extended-2.6.0
+Parsing documentation for pathutil-0.14.0
+Installing ri documentation for pathutil-0.14.0
+Parsing documentation for jekyll-3.2.1
+Installing ri documentation for jekyll-3.2.1
+16 gems installed
+[01;32mgerard@gerard-ThinkPad-X250[01;34m ~ $[00m jeykul [K[K[K[K[Kkyll -versi[K[K[K[K[K-version
+jekyll 3.2.1
+[01;32mgerard@gerard-ThinkPad-X250[01;34m ~ $[00m exit
+exit
+
+Script done on Mon 08 Aug 2016 13:44:25 BST
