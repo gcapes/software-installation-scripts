@@ -47,6 +47,7 @@ vi configure.wrf
 # To get around this we have to install (and point to) our own YACC installation.
 # define the path to the YACC install in "chem/KPP/configure_kpp", e.g.:
 # YACC=/nerc/n02/n02/lowe/WRF-CHEM_Compiling/archer/byacc/yacc -d
+# YACC=$LDIR/byacc/from_source/20160606/bin/yacc -d (on CSF2)
 # YACC is installed on CSF, but for some reason doesn't work with this version of KPP.
 # Upshot is that you have to download and build your own version.
 # See main bullet 3 here for instructions:
@@ -74,7 +75,7 @@ vi configure.wrf
 #	and replace it with
 #	./integr_edit.exe $(MECH)
 
-# I also edited the makefile according to the instructions on the wiki page (removing -ll flags)
+# I also edited chem/KPP/kpp/kpp2.1/src/Makefile according to the instructions on the wiki page (removing -ll flags)
 
 
 # Now compile wrf and real:
