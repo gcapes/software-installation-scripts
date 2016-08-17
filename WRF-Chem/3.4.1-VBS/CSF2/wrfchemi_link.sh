@@ -24,7 +24,7 @@ for file in $(ls $emissiondir)
 			fi
 			time=$hour:00:00
 			linkname=$filenamestub$time
-			ln -sf $file $rundir/$linkname
+			ln -sf $emissiondir/$file $rundir/$linkname
 	done
 done
 

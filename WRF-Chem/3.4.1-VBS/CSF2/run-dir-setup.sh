@@ -14,7 +14,7 @@
 
 export inputroot=~/scratch/wrf-chem-vbs-run/vbs_testcase_files
 export namelistdotinput=$inputroot/namelist_files/namelist.input.setup_cbmz_mosaic_anthro_vbs_megan_emission
-export wrfchemi_link_script=~/software-installation-scripts/WRF-Chem/3.4.1/CSF2/wrfchemi_link.sh
+export wrfchemi_link_script=~/software-installation-scripts/WRF-Chem/3.4.1-VBS/CSF2/wrfchemi_link.sh
 export metdir=$inputroot/met_files # <location of the met_em.d01.* files>
 # export wrfchemidir=$metdir
 export wrfinput_d01=$inputroot/wrfinput_d01
@@ -36,12 +36,7 @@ ln -s $inputroot/biogenic_emission_files/wrfbiochemi_d01 $rundir
 # Write new script for this whole process. Leave files where they are and link to them.	
 	# wrf.exe wants a wrfchemi file for each hour.
 	# Create links to the midnight files for each subsequent hour as required.
-	for file in $(ls $inputroot/emission_files/wrfchemi_d01*);do ln -s $file $rundir;done
-	export startdir=$(pwd)
-	cd $rundir # Doug's script operates on the current directory
 	. $wrfchemi_link_script
-	cd $startdir
-
 
 ln -s $wrfinput_d01 $rundir
 ln -s $wrfbdy_d01 $rundir
