@@ -37,5 +37,5 @@ export ENVCOMPDEFS="-DWRF_CHEM -DBUILD_CHEM=1 -DWRF_KPP"
 export MPI_ROOT=$MPI_HOME
 
 # Set root directory of installation 
-export WROOT=~/scratch/wrfchem-3.4.1/apps/WRF/3.4.1-VBS/WRFV3/
+export WROOT=~/scratch/wrfchem-3.4.1/apps/WRF/3.4.1-VBS/WRFV3
 
