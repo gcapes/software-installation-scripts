@@ -51,8 +51,15 @@ destinationFolder=/opt/gridware/apps/binapps/matlab/R2016a/
 ## uncomment the line.
 ##
 
-fileInstallationKey=55154-62868-20226-32304-47861-48427-23850-65124-21742-16972
+# FIK from Rebecca DeRafael - subset for research but not a network FIK.
+# Prompted for activation after installation, after bug fix implemented.
+# fileInstallationKey=55154-62868-20226-32304-47861-48427-23850-65124-21742-16972
 
+# FIK from MathWorks website - no subset, but successful installation.
+# fileInstallationKey=04392-48332-26295-29698-08306-55894-24657-27414-54494-11991-49189-17526-45446-16023-51153-64536
+
+# FIK from Colin McDonald - research subset. Successful installation, once bug fix implemented.
+fileInstallationKey=16838-28357-15828-45058-12122-26085-05139-34574-13866-62794
 ##
 ## ACCEPT LICENSE AGREEMENT  
 ##
