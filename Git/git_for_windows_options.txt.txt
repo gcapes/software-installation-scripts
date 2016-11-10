@@ -1,10 +1,10 @@
 Accept defaults except:
-! The Windows command window can't be resized. It's awful to use.
+
+# The Windows command window can't be resized. It's awful to use.
 Use Git from Git Bash only
 
-! Best when collaborating with users on a different OS
+# Best when collaborating with users on a different OS
 Checkout windows-style, commit unix-style line endings
 
-! Choose a Git Bash window which can be resized.
+# Choose a Git Bash window which can be resized.
 use MinTTY (the default terminal of MYSYS2)
-
