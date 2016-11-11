@@ -1,6 +1,8 @@
 Accept defaults except:
 
 # The Windows command window can't be resized. It's awful to use.
+# I think installing Git for use in Windows cmd also makes Git Bash 
+# start in C:\Windows\system32 - hopeless!
 Use Git from Git Bash only
 
 # Best when collaborating with users on a different OS
