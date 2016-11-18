@@ -1,3 +1,4 @@
+# Before running scripts, cd into the directory containing them
 # First step is to compile the libraries required by WRF.
 
 # Compile libraries
@@ -64,8 +65,9 @@ vi configure.wrf
 # However, KPP requires compatible flex libraries to dynamically call when it is running
 # and this precompiled version of the lex.yy.c file requires version 2.5.35 of flex, so you
 # have to build that from source, so that it has flex at run time.
+# This is done in compile-wrf-chem-libs.sh and environment variable set in wrf-chem-libs-env.sh
 # It also won't work correctly with the default installation of byacc, so download the source
-# code and build that yourself too. i
+# code and build that yourself too.
 
 # I got this error message: make: integr_edit.exe: Command not found
 # The fix is reported here: http://forum.wrfforum.com/viewtopic.php?f=39&t=3302

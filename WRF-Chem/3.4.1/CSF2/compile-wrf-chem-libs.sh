@@ -95,3 +95,9 @@ make check 2>&1 | tee make-check-flex-csf.log
 make install 2>&1 | tee make-install-flex-csf.log
 
 cd $wrf_install_root
+
+# YACC
+# ====
+# YACC must be compiled from source - see notes in wrf-chem-installation-instructions.txt
+# Placeholder until I've scripted the installation:
+echo "Now compile YACC from source"
