@@ -14,12 +14,15 @@ cd $APPS/WRF/$WVER
 # The build and install dir are the same (no 'install' target in Makefile)
 mkdir -p archive/ARW archive/WPS
 
-# Put downloads in archive dirs
-cp $WRF_FILE archive/ARW
-cp $WPS_FILE archive/WPS
-cp $WPS_GEOG archive/WPS
-cp $WPS_GEOG_UPDATE archive/WPS
+# Put downloads in archive dirs (if using downloads)
+#cp $WRF_FILE archive/ARW
+#cp $WPS_FILE archive/WPS
+#cp $WPS_GEOG archive/WPS
+#cp $WPS_GEOG_UPDATE archive/WPS
 
-tar xzf archive/ARW/wrfchem-3.4.1-mosaic-h2no5het.tar.gz
-export WROOT=$APPS/WRF/$WVER/mosaic_n2o5het_v3.4.1
-cd WROOT
+# If using modified code (WRFV3 folder from SVN repository)
+echo "Now put the WRF chem code into the following directories:"
+echo "$APPS/WRF/$WVER/WRFV3"
+echo "$APPS/WRF/$WVER/archive/ARW"
+
+cd $WROOT
