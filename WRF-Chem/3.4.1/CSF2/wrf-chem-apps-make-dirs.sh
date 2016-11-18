@@ -7,8 +7,7 @@
 # Set environment variables required by WRF
 . wrf-chem-apps-env.sh
 
-# Now our usual variabless for convenient directory naming
-export WVER=3.4.1
+# Now our usual variables for convenient directory naming
 mkdir -p $APPS/WRF/$WVER
 cd $APPS/WRF/$WVER
 
