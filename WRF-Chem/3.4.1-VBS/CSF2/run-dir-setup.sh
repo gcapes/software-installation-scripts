@@ -7,7 +7,7 @@
 # -------------
 # Create the run directory
 # Check/change the exported variables below
-#	The idea is to have the input files in one directory, which is linked to
+#	The idea is to have the input files in one directory, and link to them
 #	for each run rather than copying the files to each new run directory.
 # Set the following variables:
   # export WROOT=<WRF installation directory> (WRF installation script sets this)
