@@ -49,5 +49,5 @@ export WPS_GEOG=/scratch/mbexegc2/WRF_rpt/apps/WRF/3.7.1/archive/WPS/geog_comple
 export WPS_GEOG_UPDATE=/scratch/mbexegc2/WRF_rpt/apps/WRF/3.7.1/archive/WPS/geog_new3.7.tar.bz2
 export NCL_FILE=/scratch/mbexegc2/ncl_ncarg-6.3.0.Linux_RHEL6.4_x86_64_nodap_gcc447.tar.gz
 
-
+# Set root directory of installation
 export WROOT=$APPS/WRF/$WVER/WRFV3
