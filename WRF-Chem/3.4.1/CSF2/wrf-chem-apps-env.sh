@@ -50,6 +50,4 @@ export WPS_GEOG_UPDATE=/scratch/mbexegc2/WRF_rpt/apps/WRF/3.7.1/archive/WPS/geog
 export NCL_FILE=/scratch/mbexegc2/ncl_ncarg-6.3.0.Linux_RHEL6.4_x86_64_nodap_gcc447.tar.gz
 
 
-#export WROOT=$APPS/WRF/$WVER/mosaic_n2o5het_v3.4.1
 export WROOT=$APPS/WRF/$WVER/WRFV3
-
