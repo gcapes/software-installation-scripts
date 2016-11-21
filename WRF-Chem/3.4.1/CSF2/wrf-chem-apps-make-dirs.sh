@@ -8,7 +8,7 @@
 . wrf-chem-apps-env.sh
 
 # Now our usual variables for convenient directory naming
-mkdir -p $APPS/WRF/$WVER
+mkdir -p $WROOT
 cd $APPS/WRF/$WVER
 
 # The build and install dir are the same (no 'install' target in Makefile)
