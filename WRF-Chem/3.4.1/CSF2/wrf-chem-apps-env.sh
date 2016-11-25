@@ -37,7 +37,7 @@ export ENVCOMPDEFS="-DWRF_CHEM -DBUILD_CHEM=1 -DWRF_KPP"
 export MPI_ROOT=$MPI_HOME
 
 # Now our usual vars for convenient directory naming
-export WVER=3.4.1-VBS-water_n2o5het_bburn-r2949
+export WVER=3.4.1-VBS-water_n2o5het_bburn
 
 # WRF source files
 # export WRF_FILE=/scratch/mbexegc2/WRF_rpt/apps/WRF/3.7.1/archive/ARW/WRFV3.7.1.TAR.gz
