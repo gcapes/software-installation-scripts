@@ -74,6 +74,25 @@ make 2>&1 | tee make-netcdff-csf.log
 make check 2>&1 | tee make-check-netcdff-csf.log
 make install 2>&1 | tee make-install-netcdff-csf.log
 
+# make check fails one of the tests. This is apparently not a problem - see email below from UCAR.
+	# Hello Gerard,
+	# 
+	# This error is safe to ignore, but can be fixed by upgrading your netCDF-C to 4.4.1.1 (the latest
+	# version).  This error message is a result of some changes in error codes from the HDF5 library,
+	# which required changes in the netCDF-C library to handle properly.
+	# 
+	# I hope this helps, have a great day!
+	# 
+	# -Ward
+	# 
+	# > Dear UCAR,
+	# >
+	# > I have tried to compile the NetCDF Fortran 4.4.2 library, but have one failure when running makei
+	# > check - see attached. This doesn't appear to cause a problem in use, but are you able to advise?
+	# >
+	# > Thanks
+	# > Gerard
+
 # Flex libs
 # =========
 cd $APPS
