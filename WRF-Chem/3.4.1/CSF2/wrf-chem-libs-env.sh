@@ -18,8 +18,8 @@ export NC_FFILE=/scratch/mbexegc2/WRF_rpt/libs/netcdf/archive/netcdf-fortran-4.4
 export FLEXFILE=/scratch/mbexegc2/wrfchem-3.4.1/libs/flex/archive/flex-2.5.35.tar.gz
 export YACCFILE=/scratch/mbexegc2/wrfchem-3.4.1/libs/byacc/from_source/archive/byacc-20160606.tar.gz
 
-# CSF2 for Haswell *ONLY*
-export FLAGS="-O3 -xCORE-AVX2"
+# For all architectures on CSF2
+export FLAGS=" -msse2 -axSSE4.2,AVX,CORE-AVX2"
 
 # Dependency (zlib, hdf5, netcdf, netcdf-fortran) versions - *change* if doing a newer build
 # These are the latest versions I've used but are different to the versions used in the 
@@ -38,3 +38,21 @@ export HROOT=$LDIR/hdf/5/$HVER
 export NROOT=$LDIR/netcdf/$NVER
 export FLEXROOT=$APPS/flex/$FLEXVER
 export YROOT=$TOOLS/yacc/$YVER
+
+
+# Sanity check that the directories exist
+if [ ! -d $ZROOT ]; then
+  echo "ZROOT doesn't exist"
+fi
+if [ ! -d $HROOT ]; then
+  echo "HROOT doesn't exist"
+fi
+if [ ! -d $NROOT ]; then
+  echo "NROOT doesn't exist"
+fi
+if [ ! -d $FLEXROOT ]; then
+  echo "FLEXROOT doesn't exist"
+fi
+if [ ! -d $YROOT ]; then
+  echo "YROOT doesn't exist"
+fi
