@@ -2,10 +2,9 @@
 
 # Load intel compilers and mpi modules, set a load of environment variables for ease of installation
 . wrf-chem-libs-env.sh
-export wrf_install_root=$(pwd)
 
-# Make a directory for the libraries.
-mkdir -p $LDIR
+# The main directory for the libraries should already exist.
+# George/Pen will have created it.
 
 # Compile ZLIB library
 # ====================
@@ -48,7 +47,6 @@ cd $LDIR
 mkdir netcdf
 cd netcdf
 mkdir $NVER archive build
-# Put downloads in archive dir then...
 cp $NC_CFILE archive
 cd build
 tar xzf ../archive/netcdf-$NCVER.tar.gz
@@ -63,9 +61,7 @@ make install 2>&1 | tee make-install-netcdfc-csf.log
 # NetCDF Fortran libs
 # ===================
 cd $LDIR/netcdf
-# $NVER archive and build subdirs should already exist from above. If not:
-# mkdir $NVER archive build
-# Put downloads in archive dir then ...
+# $NVER archive and build subdirs should already exist from above.
 cp $NC_FFILE archive
 cd build
 tar xzf ../archive/netcdf-fortran-$NFVER.tar.gz
