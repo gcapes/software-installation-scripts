@@ -129,7 +129,7 @@ $PSCC
 
 
 # Uncomment or set your path to yacc in your environment
-YACC=$LDIR/byacc/from_source/20160606/bin/yacc -d 
+YACC=$YROOT/bin/yacc -d 
 
 
 #    The name of your lexical analizer. KPP requires FLEX to be used.
