@@ -37,17 +37,7 @@ export ENVCOMPDEFS="-DWRF_CHEM -DBUILD_CHEM=1 -DWRF_KPP"
 export MPI_ROOT=$MPI_HOME
 
 # Now our usual vars for convenient directory naming
-export WVER=3.4.1-VBS-water_n2o5het_bburn
-
-# WRF source files
-# export WRF_FILE=/scratch/mbexegc2/WRF_rpt/apps/WRF/3.7.1/archive/ARW/WRFV3.7.1.TAR.gz
-export WRF_FILE=$HOME/wrfchem-3.4.1-mosaic-h2no5het.tar.gz # Replaces file above
-export WPS_FILE=$HOME/WPSV3.4.1.TAR.gz
-# Data from 3.4.1 not available for download any more so use newer data
-# I actually used geography data sent by Doug Lowe instead of running WPS.
-export WPS_GEOG=/scratch/mbexegc2/WRF_rpt/apps/WRF/3.7.1/archive/WPS/geog_complete.tar.bz2
-export WPS_GEOG_UPDATE=/scratch/mbexegc2/WRF_rpt/apps/WRF/3.7.1/archive/WPS/geog_new3.7.tar.bz2
-export NCL_FILE=/scratch/mbexegc2/ncl_ncarg-6.3.0.Linux_RHEL6.4_x86_64_nodap_gcc447.tar.gz
+export WVER=3.4.1/water_n2o5het_bburn
 
 # Set root directory of installation
-export WROOT=$APPS/WRF/$WVER/WRFV3
+export WROOT=$APPS/WRF-Chem/$WVER/WRFV3
