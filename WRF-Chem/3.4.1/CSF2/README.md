@@ -5,6 +5,6 @@ I used these scripts to largely automate the installation.
 - . wrf-chem-libs-env.sh
 - . compile-wrf-chem-libs.sh
 - . wrf-chem-apps-env.sh
-- . wrf-chem-make-dirs.sh
+- . wrf-chem-apps-make-dirs.sh
 - refer to wrf-chem-installation-instructions.txt for a few manual steps
 
