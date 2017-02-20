@@ -22,7 +22,7 @@
 # Instead of following the detailed instructions (indented below), can just copy modified files thus:
 cp -r WROOT_config/* $WROOT
 
-#	cd $WROOT
+cd $WROOT
 #	vi arch/Config_new.pl
 #	   # Search for $I_really_want_to_output_grib2_from_WRF = "FALSE" ;
 #	   # Set it to "TRUE" - the Config_new.pl scripts tells you to do this for jasper jpeg output!!
