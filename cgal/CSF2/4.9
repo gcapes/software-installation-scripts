@@ -1,0 +1,10 @@
+module load tools/gcc/cmake/3.7.2
+
+mkdir /opt/gridware/libs/gcc/gcal
+cd /opt/gridware/libs/gcc/gcal
+wget https://github.com/CGAL/cgal/archive/releases/CGAL-4.9.tar.gz
+tar xzf CGAL-4.9.tar.gz
+mv cgal-releases-CGAL-4.9 4.9
+cd 4.9
+cmake . 2>&1 | tee cmake.log
+make 2>&1 | tee make.log
