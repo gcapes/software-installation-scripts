@@ -1,0 +1,31 @@
+# Installation
+# The instructions here are incomplete: https://openfoam.org/download/4-1-source/
+# 
+# Instead, follow instructions here: https://openfoamwiki.net/index.php/Installation/Linux/OpenFOAM-4.1/Ubuntu
+# 
+# Compilation requires gcc > 4.5.
+# I think I didn't compile ParaView last time, so don't need cmake, or QT.
+# Do need OpenMPI.
+# 
+# Commands:
+
+module load compilers/gcc/6.3.0 # (most recent on CSF)
+module load mpi/gcc/openmpi/1.8
+module load libs/gcc/boost/1.55.0
+module load libs/gcc/cgal/4.9
+module load tools/env/proxy
+
+mkdir /opt/gridware/apps/gcc/openfoam/4.1
+cd /opt/gridware/apps/gcc/openfoam/4.1
+wget -O - http://dl.openfoam.org/source/4-1 | tar xvz
+wget -O - http://dl.openfoam.org/third-party/4-1 | tar xvz
+mv OpenFOAM-4.x-version-4.1 OpenFOAM-4.1
+mv ThirdParty-4.x-version-4.1 ThirdParty-4.1
+cd /opt/gridware/apps/gcc/openfoam/4.1
+. OpenFOAM-4.1/etc/bashrc
+cd /opt/gridware/apps/gcc/openfoam/4.1/ThirdParty-4.1
+./Allwmake 2>&1 | tee allwmake.log
+cd ../OpenFOAM-4.1
+./Allwmake 2>&1 | tee allwmake.log
+
+# Usage
