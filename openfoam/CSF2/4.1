@@ -1,10 +1,10 @@
 # Installation
+# ------------
 # The instructions here are incomplete: https://openfoam.org/download/4-1-source/
-# 
 # Instead, follow instructions here: https://openfoamwiki.net/index.php/Installation/Linux/OpenFOAM-4.1/Ubuntu
 # 
 # Compilation requires gcc > 4.5.
-# I think I didn't compile ParaView last time, so don't need cmake, or QT.
+# Don't compile ParaView, so don't need cmake, or QT.
 # Do need OpenMPI.
 # 
 # Commands:
@@ -22,6 +22,26 @@ wget -O - http://dl.openfoam.org/third-party/4-1 | tar xvz
 mv OpenFOAM-4.x-version-4.1 OpenFOAM-4.1
 mv ThirdParty-4.x-version-4.1 ThirdParty-4.1
 cd /opt/gridware/apps/gcc/openfoam/4.1
+
+# OpenFOAM's installation scripts don't detect boost and CGAL environment variables
+# which are set when loading the module files.
+# As such, some config files need manually editing
+vim /opt/gridware/apps/gcc/openfoam/4.1/ThirdParty-4.1/makeCGAL
+	# Look for the 'Build Boost' section
+	# At the bottom of the if ... elif ... else section are the
+	# settings for using the system (/usr) installation.
+	# Change this to use the /opt/gridware installation:
+	#   boostInc="/usr/include"
+	    boostInc="$BOOST_INCLUDE"
+	#   boostLib="/usr/lib$WM_ARCH_OPTION"
+	    boostLib="$BOOST_LIB"
+vim /opt/gridware/apps/gcc/openfoam/4.1/OpenFOAM-4.1/etc/config.sh/CGAL
+	# Near the top of the file, make the following changes:
+	#   export BOOST_ARCH_PATH=$common_path/$boost_version
+	    export BOOST_ARCH_PATH=$BOOST_ROOT
+	#   export CGAL_ARCH_PATH=$common_path/$cgal_version
+	    export CGAL_ARCH_PATH=$CGAL_DIR
+
 . OpenFOAM-4.1/etc/bashrc
 cd /opt/gridware/apps/gcc/openfoam/4.1/ThirdParty-4.1
 ./Allwmake 2>&1 | tee allwmake.log
@@ -29,3 +49,4 @@ cd ../OpenFOAM-4.1
 ./Allwmake 2>&1 | tee allwmake.log
 
 # Usage
+#------
