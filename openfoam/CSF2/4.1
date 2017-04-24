@@ -48,5 +48,10 @@ cd /opt/gridware/apps/gcc/openfoam/4.1/ThirdParty-4.1
 cd ../OpenFOAM-4.1
 ./Allwmake 2>&1 | tee allwmake.log
 
+mkdir -p $FOAM_RUN
+cp -r $FOAM_TUTORIALS $FOAM_RUN
+cd $FOAM_RUN/tutorials
+./Alltest 2>&1 | tee alltest.log
+
 # Usage
 #------
