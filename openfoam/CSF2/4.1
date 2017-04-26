@@ -25,6 +25,9 @@ cd /opt/gridware/apps/gcc/openfoam/4.1
 
 # Manually edit installation directory in bashrc file:
 vim /opt/gridware/apps/gcc/openfoam/4.1/OpenFOAM-4.1/etc/bashrc
+	#[ $BASH_SOURCE ] && \
+	#export FOAM_INST_DIR=$(cd ${BASH_SOURCE%/*/*/*} && pwd -P) || \
+	#export FOAM_INST_DIR=$HOME/$WM_PROJECT
 	export FOAM_INST_DIR=/opt/gridware/apps/gcc/openfoam/$WM_PROJECT_VERSION
 
 # OpenFOAM's installation scripts don't detect boost and CGAL environment variables
