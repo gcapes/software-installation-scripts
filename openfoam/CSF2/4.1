@@ -30,18 +30,8 @@ vim /opt/gridware/apps/gcc/openfoam/4.1/OpenFOAM-4.1/etc/bashrc
 	#export FOAM_INST_DIR=$HOME/$WM_PROJECT
 	export FOAM_INST_DIR=/opt/gridware/apps/gcc/openfoam/$WM_PROJECT_VERSION
 
-# OpenFOAM's installation scripts don't detect boost and CGAL environment variables
-# which are set when loading the module files.
-# As such, some config files need manually editing
-vim /opt/gridware/apps/gcc/openfoam/4.1/ThirdParty-4.1/makeCGAL
-	# Look for the 'Build Boost' section
-	# At the bottom of the if ... elif ... else section are the
-	# settings for using the system (/usr) installation.
-	# Change this to use the /opt/gridware installation:
-	#   boostInc="/usr/include"
-	    boostInc="$BOOST_INCLUDE"
-	#   boostLib="/usr/lib$WM_ARCH_OPTION"
-	    boostLib="$BOOST_LIB"
+# We have built CGAL separately, so no need to edit ThirdParty-4.1/makeCGAL
+
 vim /opt/gridware/apps/gcc/openfoam/4.1/OpenFOAM-4.1/etc/config.sh/CGAL
 	# Near the top of the file, make the following changes:
 	#   export BOOST_ARCH_PATH=$common_path/$boost_version
@@ -52,7 +42,7 @@ vim /opt/gridware/apps/gcc/openfoam/4.1/OpenFOAM-4.1/etc/config.sh/CGAL
 # Set environment variables
 . OpenFOAM-4.1/etc/bashrc
 
-# Install third party software
+# Install third party software (just scotch)
 cd /opt/gridware/apps/gcc/openfoam/4.1/ThirdParty-4.1
 ./Allwmake 2>&1 | tee allwmake.log
 
