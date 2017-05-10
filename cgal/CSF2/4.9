@@ -14,3 +14,8 @@ cmake -DCMAKE_INSTALL_PREFIX=$cgal_install_dir . 2>&1 | tee cmake.log
 cmake . 2>&1 | tee cmake.log
 make 2>&1 | tee make.log
 make install 2>&1 |  tee make-install.log
+
+# When compiling OpenFOAM, the makefile looks for $CGAL_DIR/lib rather than lib64,
+# so create a link to lib64.
+cd $cgal_install_dir
+ln -s lib64 lib
