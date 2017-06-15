@@ -1,12 +1,15 @@
-# Copy installation files onto iCSF (e.g. home directory)
-# Then run this script (./installer_iCSF.sh)
+# 1. Copy installation files onto iCSF (e.g. home directory)
+# 2. Navigate to the folder containing the MATLAB installer
+# Then run this script with one argument </path/to/installer_input.txt>
+# e.g.
+# path/to/installer_iCSF.sh ~/software-installation-scripts/MATLAB/R2016a/installer_input_iCSF.txt
 
 # Note that MATLAB's installer_input.txt file for R2016a doesn't work in the same way as
 # previous version of MATLAB. It should set the path to the licence file, but it fails
 # to do this. You therefore have to manually activate (i.e. point it to the network.lic
 # file post-installation).
 
-./install -inputFile installer_input_iCSF.txt
+./install -inputFile $1
 
 # To get the files from the iso to iCSF, you must first mount the iso on your PC
 # then copy the files over (after compressing to tar.gz)
