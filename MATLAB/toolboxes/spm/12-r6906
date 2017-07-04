@@ -4,8 +4,18 @@
 wget http://www.fil.ion.ucl.ac.uk/spm/download/restricted/eldorado/spm12.zip
 mkdir temp
 unzip spm12.zip -d temp/ # Unzip to temporary location to avoid overwriting previous installation
-export instdir=/opt/gridware/apps/binapps/matlab/third_party_toolboxes/spm/12-r6906
-mkdir $instdir
-cp -r temp/spm12/* $instdir
+export spm12_root=/opt/gridware/apps/binapps/matlab/third_party_toolboxes/spm/12-r6906
+mkdir $spm12_root
+cp -r temp/spm12/* $spm12_root
+# So far this is the standard installation, i.e. not for compiled MATLAB.
+
+# The toolbox cannot just be included using mcc -a <toolboxpath> as you might normally do.
+# The SPM toolbox files are given as .p files rather than .m files, and the toolbox has a 
+# compiler script to create a standalone version of the toolbox.
+# In order to compile a standalone version of the toolbox, you should open the MATLAB GUI,
+# navigate to the `config` directory, then run `spm_make_standalone`.
+# Alternatively the toolbox can be compiled using the commands:
+export spm12_standalone=$spm12_root-standalone
+mcc -m -C -v -o spm12 -d $spm12_standalone -N -p $MATLAB_HOME/toolbox/signal/ -R singleCompThread -a $spm12_root $spm12_standalone/spm_standalone.m
 
 # Module file just adds $instdir to MATLABPATH
