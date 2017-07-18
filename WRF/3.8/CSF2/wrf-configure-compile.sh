@@ -21,14 +21,31 @@ echo " and 1. Basic nesting"
 # 15. (dmpar) INTEL (ifort/icc)
 # 1. Basic nesting
 
+echo "=================================================================="
 echo "Now append flags to variables in configure.wrf"
-echo "View configure-wrf.sh for details"
-# In configure.wrf, append the flags: -msse2 -axSSE4.2,AVX,CORE-AVX2
-# to the following variables, so that WRF will run on any node:
-	# SFC
-	# SCC
-	# CCOMP
-	# CFLAGS_LOCAL
-	# FCOPTIM
-echo "Compile WRF before WPS"
+echo "----------------------------------------------"
+echo "In configure.wrf, append the flags: -msse2 -axSSE4.2,AVX,CORE-AVX2"
+echo "to the following variables, so that WRF will run on any node:"
+echo "	SFC"
+echo "	SCC"
+echo "	CCOMP"
+echo "	CFLAGS_LOCAL"
+echo "	FCOPTIM"
+echo "=================================================================="
+echo "Now compile WRF (before WPS)"
+echo "----------------------------"
 echo "./compile -j 1 em_real 2>&1 | tee -a compile-em_real-serial.log"
+echo "=================================================================="
+# Success looks like this:
+# ==========================================================================
+# build started:   Mon Jul 17 13:36:45 BST 2017
+# build completed: Mon Jul 17 15:27:18 BST 2017
+#  
+# --->                  Executables successfully built                  <---
+#  
+# -rwxr-xr-x 1 mbexegc2 support 64777234 Jul 17 15:27 main/ndown.exe
+# -rwxr-xr-x 1 mbexegc2 support 64577101 Jul 17 15:27 main/real.exe
+# -rwxr-xr-x 1 mbexegc2 support 63537566 Jul 17 15:27 main/tc.exe
+# -rwxr-xr-x 1 mbexegc2 support 76141671 Jul 17 15:25 main/wrf.exe
+#  
+# ==========================================================================
