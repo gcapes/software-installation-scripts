@@ -22,6 +22,6 @@ echo "-----------------------------------------------------------"
 # Return to Build_WRF directory (i.e. top level folder - WRF/3.8)
 cd ..
 # Download geography data
-wget http://www2.mmm.ucar.edu/wrf/src/wps_files/geog_minimum.tar.bz2
+wget http://www2.mmm.ucar.edu/wrf/src/wps_files/geog_complete.tar.bz2
 mkdir WPS_GEOG
-tar -xjf geog_minimum.tar.bz2 -C WPS_GEOG
+tar -xjf geog_complete.tar.bz2 -C WPS_GEOG
