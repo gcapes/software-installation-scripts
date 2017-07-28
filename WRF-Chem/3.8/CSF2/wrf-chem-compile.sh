@@ -5,7 +5,7 @@ wget http://www2.mmm.ucar.edu/wrf/src/WRFV3.8.TAR.gz
 tar -xzf WRFV3.8.TAR.gz
 wget http://www2.mmm.ucar.edu/wrf/src/WRFV3-Chem-3.8.TAR.gz
 cd WRFV3
-tar -xzf WRFV3-Chem-3.8.TAR.gz
+tar -xzf ../WRFV3-Chem-3.8.TAR.gz
 
 module load compilers/intel/fortran/15.0.3
 module load libs/intel-15.0/hdf/5/1.8.16
