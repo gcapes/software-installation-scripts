@@ -24,18 +24,18 @@ export HDF5=$HDF5_PATH
 # WRF-Chem variables
 export WRF_CHEM=1
 export WRF_KPP=1
-
 echo "=================================================================="
-echo "Now configure using options 15. (dmpar) INTEL (ifort/icc)"
+echo "Now edit arch/Config_new.pl"
+echo "Search for \$I_really_want_to_output_grib2_from_WRF = \"FALSE\""
+echo "Then set it to \"TRUE\""
+echo "=================================================================="
+echo "Then run ./configure using options 15. (dmpar) INTEL (ifort/icc)"
 echo " and 1. Basic nesting"
 echo "=================================================================="
-./configure
-# 15. (dmpar) INTEL (ifort/icc)
-# 1. Basic nesting
 
 echo "=================================================================="
-echo "Now append flags to variables in configure.wrf"
-echo "----------------------------------------------"
+echo "After running configure, append flags to variables in configure.wrf"
+echo "-------------------------------------------------------------------"
 echo "In configure.wrf, append the flags: -msse2 -axSSE4.2,AVX,CORE-AVX2"
 echo "to the following variables, so that WRF will run on any node:"
 echo "	SFC"
