@@ -15,14 +15,18 @@ module load mpi/intel-15.0/openmpi/1.8.3-ib
 export WRFIO_NCD_LARGE_FILE_SUPPORT=1
 export JASPERLIB=/usr/lib64
 export JASPERINC=/usr/include/jasper
-export MPI_ROOT=/opt/gridware/mpi/intel/openmpi/1.8.3--intel-15.0.3
+# Use variables already set by module files
+export MPI_ROOT=$MPI_HOME
+export HDF5=$HDF5_PATH
 
 # WRF-Chem variables
 export WRF_CHEM=1
 export WRF_KPP=1
 
+echo "=================================================================="
 echo "Now configure using options 15. (dmpar) INTEL (ifort/icc)"
 echo " and 1. Basic nesting"
+echo "=================================================================="
 ./configure
 # 15. (dmpar) INTEL (ifort/icc)
 # 1. Basic nesting
