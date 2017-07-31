@@ -24,6 +24,8 @@ export HDF5=$HDF5_PATH
 # WRF-Chem variables
 export WRF_CHEM=1
 export WRF_KPP=1
+export FLEX_LIB_DIR=/usr/lib64	# Requires flex-dev package
+export YACC="yacc -d"		# KPP won't work without the -d flag
 echo "=================================================================="
 echo "Now edit arch/Config_new.pl"
 echo "Search for \$I_really_want_to_output_grib2_from_WRF = \"FALSE\""
