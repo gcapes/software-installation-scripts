@@ -29,9 +29,9 @@ set MVER=R2018a
 set MROOT="C:\Program Files\MATLAB\%MVER%"
 
 REM Prepare installation files
-REM There are two iso files. The second contains a `common` directory which must be copied into `archives`.
+REM There are two iso files. The second contains a `common` directory which must be moved into `archives`.
 IF EXIST common (
-	copy /Y common %MVER%\archives
+	move /Y common %MVER%\archives
 ) ELSE IF NOT EXIST %MVER%\archives\common (
 	echo !!! ERROR !!!
 	echo Directory missing: %MVER%\archives\common
