@@ -36,6 +36,7 @@ IF EXIST common (
 	echo !!! ERROR !!!
 	echo Directory missing: %MVER%\archives\common
 	echo Refer to installation instructions.
+	echo https://www.applications.itservices.manchester.ac.uk/show_product.php?id=98^&tab=install
 	echo Installation aborted.
 	PAUSE
 	EXIT
