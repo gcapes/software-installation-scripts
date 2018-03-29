@@ -27,6 +27,7 @@ if '%errorlevel%' NEQ '0' (
 REM Create variables
 set MVER=R2018a
 set MROOT="C:\Program Files\MATLAB\%MVER%"
+set NVER=25
 
 REM Prepare installation files
 REM There are two iso files. The second contains a `common` directory which must be moved into `archives`.
@@ -62,4 +63,4 @@ REM set environment variables
 setx MLM_LICENSE_FILE %MROOT%\licenses\network.lic /m
 
 REM Install NAG Toolbox for MATLAB
-mbw6i24ddl_setup.exe /SILENT /DIR=%MROOT%
+%MVER%\mbw6i%NVER%ddl_setup.exe /SILENT /DIR=%MROOT%
