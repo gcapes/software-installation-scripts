@@ -43,4 +43,5 @@ cd $SDIR
 PATH=$SDIR/privateRequirements/bin:$PATH
 
 # Build swak4foam
+cd $SDIR
 ./Allwmake 2>&1 | tee allwmake.log
