@@ -12,10 +12,10 @@ source $foamDotFile
 SROOT=$OFROOT/swak4foam
 mkdir $SROOT
 cd $SROOT
-git clone https://github.com/Unofficial-Extend-Project-Mirror/openfoam-extend-swak4Foam-dev.git
-SDIR=$SROOT/openfoam-extend-swak4Foam-dev
+hg clone http://hg.code.sf.net/p/openfoam-extend/swak4Foam swak4Foam
+SDIR=$SROOT/swak4Foam
 cd $SDIR
-git checkout branches/develop
+hg update develop
 
 # Prerequisites
  # swak4Foam requires Bison >= 2.4 (according to README) but not 3.0.
