@@ -9,7 +9,7 @@ source $foamDotFile
 # Clone source code.
  # I did this step on my own machine, and then used scp to copy a tar.gz
  # of the whole directory to the CSF, because the CSF doesn't have Mercurial.
-SROOT=$OFROOT/swak4foam
+SROOT=$OFROOT/swak4Foam
 mkdir $SROOT
 cd $SROOT
 hg clone http://hg.code.sf.net/p/openfoam-extend/swak4Foam swak4Foam
@@ -42,6 +42,6 @@ cd $SDIR
 ./maintainanceScripts/compileRequirements.sh 2>&1 | tee compilerequirements.log
 PATH=$SDIR/privateRequirements/bin:$PATH
 
-# Build swak4foam
+# Build swak4Foam
 cd $SDIR
 ./Allwmake 2>&1 | tee allwmake.log
