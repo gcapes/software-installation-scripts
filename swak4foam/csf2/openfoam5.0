@@ -15,7 +15,7 @@ cd $SROOT
 hg clone http://hg.code.sf.net/p/openfoam-extend/swak4Foam swak4Foam
 SDIR=$SROOT/swak4Foam
 cd $SDIR
-hg update develop
+hg update compile_of5.0
 
 # Prerequisites
  # swak4Foam requires Bison >= 2.4 (according to README) but not 3.0.
