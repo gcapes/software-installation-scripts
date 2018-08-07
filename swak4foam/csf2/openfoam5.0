@@ -7,8 +7,6 @@ module load apps/gcc/openfoam/$FVER
 source $foamDotFile
 
 # Clone source code.
- # I did this step on my own machine, and then used scp to copy a tar.gz
- # of the whole directory to the CSF, because the CSF doesn't have Mercurial.
 SROOT=$OFROOT/swak4Foam
 mkdir $SROOT
 cd $SROOT
