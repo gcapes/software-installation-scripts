@@ -43,3 +43,9 @@ PATH=$SDIR/privateRequirements/bin:$PATH
 # Build swak4Foam
 cd $SDIR
 ./Allwmake 2>&1 | tee allwmake.log
+
+# Copy local build to site
+source ./maintainanceScripts/copySwakFilesToSite.sh
+
+# Remove local build
+source ./maintainanceScripts/removeSwakFilesFromLocal.sh
