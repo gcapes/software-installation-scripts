@@ -1,0 +1,28 @@
+#%Module 1.0
+
+set codeName	VASP	
+set version	5.4.1
+set mancApps    /apps/manchester
+set devlibs	/apps/Modules/developers/libraries
+
+proc ModulesHelp { } {
+	puts stderr "$codeName $version
+
+		N8HPC Institution:
+		Manchester (build by Gerard Capes, 05 April 2016)
+
+		Information:
+
+		"
+}
+
+module-whatis "$codeName $version"
+
+prereq  manchester
+
+set root $mancApps/$codeName/$version
+prepend-path	PATH	$root/bin	
+
+# Load module files for mkl and fftw libraries
+module load $devlibs/fftw/3.3.2
+module load $devlibs/mkl/10.3u11
