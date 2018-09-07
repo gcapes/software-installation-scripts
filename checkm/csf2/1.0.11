@@ -43,6 +43,7 @@ PATH=$PPDIR:$PATH
 
 module load apps/binapps/anaconda/2.5.0
 module load tools/env/proxy2
+module load libs/gcc/xz-lzma/5.2.2
 
 pip install --user checkm-genome
 # Add checkm to PATH - above didn't work, but on desktop location was ~/anaconda3/envs/python2.7/bin/checkm
