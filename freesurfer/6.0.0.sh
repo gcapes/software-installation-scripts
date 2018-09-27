@@ -1,5 +1,6 @@
 # Install FreeSurfer v6.0.0 on Ubuntu 16.04
 # See http://surfer.nmr.mgh.harvard.edu/fswiki/DownloadAndInstall#FreeSurferDownloadandInstall
+# Source this script with admin rights (sudo)
 
 # Download installer
 cd ~/Downloads
@@ -12,4 +13,4 @@ source $FREESURFER_HOME/SetUpFreeSurfer.sh
 
 # Install dependencies 
 sudo apt-get install tcsh
-sudo agt-get install libjpeg62
+sudo apt-get install libjpeg62
