@@ -1,0 +1,12 @@
+# Build rheoTool in user space e.g. scratch
+
+module load tools/env/proxy
+git clone https://github.com/fppimenta/rheoTool.git
+cd rheoTool/of60/src
+module load libs/eigen/3.2.1
+module load apps/gcc/openfoam/6
+source $foamDotFile
+export EIGEN_RHEO=/opt/gridware/libs/eigen/3.2.1/include/eigen3
+
+# Module files will need to be loaded on each CSF session,
+# and the EIGEN_RHEO environment variable will need to be set again.
