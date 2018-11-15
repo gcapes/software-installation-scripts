@@ -1,0 +1,16 @@
+# http://www.easyspin.org/download.html
+
+MROOT=/opt/apps/apps/binapps/matlab
+TBROOT=${MROOT}/third-party-toolboxes
+SROOT=${TBROOT}/easyspin
+SVER=5.2.21
+SHOME=${SROOT}/${SVER}
+
+mkdir -p ${SROOT}
+cd ${SROOT}
+wget http://www.easyspin.org/easyspin-${SVER}.zip
+unzip easyspin-${SVER}.zip
+mv easyspin-${SVER} ${SVER}
+
+# Then in module file
+# MATLABPATH=${SHOME}/easyspin:${MATLABPATH}
