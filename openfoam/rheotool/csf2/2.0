@@ -8,5 +8,6 @@ module load apps/gcc/openfoam/6
 source $foamDotFile
 export EIGEN_RHEO=/opt/gridware/libs/eigen/3.2.1/include/eigen3
 
+./Allwmake 2>&1 | tee allwmake.log
 # Module files will need to be loaded on each CSF session,
 # and the EIGEN_RHEO environment variable will need to be set again.
