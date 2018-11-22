@@ -1,0 +1,52 @@
+# Vaguely following the wiki: http://openfoamwiki.net/index.php/Contrib/swak4Foam#Building
+
+# Set OpenFOAM directory
+FVER=6
+OFROOT=/opt/apps/apps/gcc/openfoam/$FVER
+module load apps/gcc/openfoam/$FVER
+source $foamDotFile
+
+# Clone source code.
+module load tools/env/proxy
+SROOT=$OFROOT/swak4Foam
+mkdir $SROOT
+cd $SROOT
+hg clone http://hg.code.sf.net/p/openfoam-extend/swak4Foam swak4Foam
+SDIR=$SROOT/swak4Foam
+cd $SDIR
+hg update develop
+
+# Prerequisites
+ # swak4Foam requires Bison >= 2.4 (according to README) but not 3.0.
+ # CSF2 has 2.4.1 but the install script rejects it.
+ # According to the installation script Allwmake (but contradicting the wiki),
+ # installation requires Bison >=3, so we download a compatible version.
+
+ # m4 is required to build Bison
+cd $SROOT
+wget http://ftp.gnu.org/gnu/m4/m4-latest.tar.gz
+tar -xzvf m4-latest.tar.gz
+M4VER=1.4.17
+M4SRC=$SROOT/m4-$M4VER
+M4BUILD=$SROOT/m4-$M4VER-build
+mkdir $M4BUILD
+cd $M4SRC
+./configure --prefix=$M4BUILD 2>&1 | tee configure.log
+make 2>&1 | tee make.log
+make install 2>&1 | tee make-install.log
+PATH=$M4BUILD/bin/:$PATH
+
+ # Build pre-requisites
+cd $SDIR
+./maintainanceScripts/compileRequirements.sh 2>&1 | tee compilerequirements.log
+PATH=$SDIR/privateRequirements/bin:$PATH
+
+# Build swak4Foam
+cd $SDIR
+./Allwmake 2>&1 | tee allwmake.log
+
+# Copy local build to site
+source ./maintainanceScripts/copySwakFilesToSite.sh
+
+# Remove local build
+source ./maintainanceScripts/removeSwakFilesFromLocal.sh
