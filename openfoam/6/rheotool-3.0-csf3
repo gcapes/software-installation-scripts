@@ -1,0 +1,22 @@
+# Build rheoTool centrally
+
+OF_VER=6
+OF_DIR=/opt/apps/apps/gcc/openfoam/$OF_VER
+EIGEN_VER=3.3.7
+RHEO_VER=3.0
+RHEO_DIR=/opt/apps/apps/gcc/openfoam/$OF_VER/rheoTool/$RHEO_VER
+
+module load libs/eigen/$EIGEN_VER
+module load apps/gcc/openfoam/$OF_VER
+module load tools/env/proxy
+
+mkdir -p ${RHEO_DIR}
+cd ${RHEO_DIR}
+git clone https://github.com/fppimenta/rheoTool.git
+cd rheoTool/of60/src
+source $foamDotFile
+# C_INCLUDE_PATH is set by Eigen module file to /opt/apps/libs/eigen/3.3.7/include/Eigen3
+export EIGEN_RHEO=${C_INCLUDE_PATH}
+
+./Allwmake 2>&1 | tee allwmake.log
+# EIGEN_RHEO environment variable needs to be set again in the OpenFOAM module file.
