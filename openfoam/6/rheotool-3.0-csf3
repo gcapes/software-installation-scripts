@@ -4,7 +4,8 @@ OF_VER=6
 OF_DIR=/opt/apps/apps/gcc/openfoam/$OF_VER
 EIGEN_VER=3.3.7
 RHEO_VER=3.0
-RHEO_DIR=/opt/apps/apps/gcc/openfoam/$OF_VER/rheoTool/$RHEO_VER
+RHEO_DIR=/opt/apps/apps/gcc/openfoam/$OF_VER/rheotool/$RHEO_VER
+RHEO_SUBDIR=${RHEO_DIR}/rheoTool/of${OF_VER}0
 
 module load libs/eigen/$EIGEN_VER
 module load apps/gcc/openfoam/$OF_VER
@@ -13,10 +14,16 @@ module load tools/env/proxy
 mkdir -p ${RHEO_DIR}
 cd ${RHEO_DIR}
 git clone https://github.com/fppimenta/rheoTool.git
-cd rheoTool/of60/src
+cd $RHEO_SUBDIR/src
 source $foamDotFile
 # C_INCLUDE_PATH is set by Eigen module file to /opt/apps/libs/eigen/3.3.7/include/Eigen3
 export EIGEN_RHEO=${C_INCLUDE_PATH}
 
+# By default, RheoTool installs to subdirectories of $FOAM_USER_APPBIN and $FOAM_USER_LIBBIN,
+# which are set by sourcing $foamDotFile.
+# For central installation, override these variables.
+export FOAM_USER_APPBIN=$RHEO_SUBDIR/bin
+export FOAM_USER_LIBBIN=$RHEO_SUBDIR/lib
+mkdir -p $FOAM_USER_APPBIN $FOAM_USER_LIBBIN
 ./Allwmake 2>&1 | tee allwmake.log
 # EIGEN_RHEO environment variable needs to be set again in the OpenFOAM module file.
