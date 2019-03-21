@@ -5,7 +5,7 @@ module load apps/binapps/matlab/R2018a
 cd $MATLAB_HOME/extern/engines/python
 # The `--prefix=` bit is needed due to a bug on CentOS
 # https://stackoverflow.com/questions/4495120/combine-user-with-prefix-error-with-setup-py-install
-python setup.py install --user --prefix=
+python setup.py build --build-base=$HOME/temp install --user --prefix=
 
 # Usage from python is then like this:
   # >>> import matlab.engine
