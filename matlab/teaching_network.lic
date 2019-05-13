@@ -1,0 +1,4 @@
+SERVER lfarm1.eps.manchester.ac.uk ANY 25060
+SERVER lfarm2.eps.manchester.ac.uk ANY 25060
+SERVER lfarm3.eps.manchester.ac.uk ANY 25060
+USE_SERVER
