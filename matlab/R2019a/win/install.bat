@@ -56,8 +56,8 @@ IF EXIST %MVER%\examples (
 
 )
 IF EXIST win64 (
-	move /Y win64 %MVER%
-) ELSE IF NOT EXIST %MVER%\win64 (
+	move /Y win64 %MVER%\archives
+) ELSE IF NOT EXIST %MVER%\archives\win64 (
 	echo !!! USER ERROR !!!
 	echo Directory missing: %MVER%\win64
 	echo Refer to installation instructions.
