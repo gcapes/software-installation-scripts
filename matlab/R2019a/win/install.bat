@@ -67,6 +67,10 @@ IF EXIST win64 (
 	EXIT
 )
 
+IF EXIST %MROOT%\licenses\network.lic del %MROOT%\licenses\network.lic
+mkdir %MROOT%\licenses
+copy /Y %MVER%\network.lic %MROOT%\licenses\
+
 REM INSTALL MATLAB
 REM The setup.exe in the root directory calls another setup.exe which does the installation.
 REM However, if we execute the root setup.exe, the "/WAIT" isn't transferred to the new process
@@ -74,9 +78,6 @@ REM and so the rest of this batch script executes without waiting for setup.exe 
 REM As such the start menu activation shortcuts are not deleted because they don't exist when those commands execute.
 REM The solution is to call the second setup.exe directly.
 START /WAIT %MVER%\bin\win64\setup.exe -inputFile %MVER%\installer_input.txt
-mkdir %MROOT%\licenses
-IF EXIST %MROOT%\licenses\network.lic del %MROOT%\licenses\network.lic
-copy /Y %MVER%\network.lic %MROOT%\licenses\
 
 REM Activation is not required for network licenses so delete shortcuts to prevent confusion
 set SHORTCUTDIR=C:\ProgramData\Microsoft\Windows\Start Menu\Programs\MATLAB %MVER%
