@@ -31,6 +31,8 @@ set NVER=25
 
 REM Prepare installation files
 REM There are three iso files because the ESD can't reliably handle iso files > 4Gb.
+REM As such, directories have been moved around to best fit into 3 iso files,
+REM and need moving back to the original locations.
 IF EXIST common (
 	move /Y common %MVER%\archives
 ) ELSE IF NOT EXIST %MVER%\archives\common (
