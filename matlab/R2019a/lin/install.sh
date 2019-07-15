@@ -49,6 +49,7 @@ fi
 export LICENCEDIR=/usr/local/matlab/${MVER}/licenses
 sudo mkdir -p ${LICENCEDIR}
 sudo cp "${INSTALLERDIR}"/network.lic ${LICENCEDIR}
+sudo chmod +r ${LICENCEDIR}/network.lic
 
 # Run the installer
 sudo "${INSTALLERDIR}"/install -inputFile "${INSTALLERDIR}"/installer_input.txt
