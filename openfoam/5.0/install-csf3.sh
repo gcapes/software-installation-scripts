@@ -16,10 +16,7 @@ mv ThirdParty-5.x-version-5.0 ThirdParty-5.0
 module load compilers/gcc/6.4.0
 # flex (available by default on CSF)
 # OpenMPI is loaded as part of the boost module file on CSF3
-
-# Set the environment for OpenFOAM
-# For this version, it correctly sets FOAM_INST_DIR and WM_PROJECT_DIR
-. OpenFOAM-5.0/etc/bashrc
+# but must be loaded before the bashrc file is sourced!
 
 # Install third party software
 # We do this separately for CGAL, don't build Paraview, so it's only
@@ -32,6 +29,10 @@ module load libs/boost/1.60.0
 # So instead, just set two environment variables from the shell:
 export BOOST_ARCH_PATH=$BOOST_ROOT
 export CGAL_ARCH_PATH=$CGAL_DIR
+
+# Set the environment for OpenFOAM
+# For this version, it correctly sets FOAM_INST_DIR and WM_PROJECT_DIR
+. OpenFOAM-5.0/etc/bashrc
 
 # Install third party software (just scotch)
 cd $OF_ROOT/ThirdParty-5.0
