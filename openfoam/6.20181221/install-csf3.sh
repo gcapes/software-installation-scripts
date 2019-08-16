@@ -98,4 +98,5 @@ cd $OF_ROOT/OpenFOAM-$FVER &&
 mkdir -p $FOAM_RUN
 cp -r $FOAM_TUTORIALS $FOAM_RUN
 cd $FOAM_RUN/tutorials
+module load tools/gcc/gnuplot/5.2.7
 ./Alltest 2>&1 | tee alltest.log
