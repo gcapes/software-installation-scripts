@@ -10,4 +10,4 @@ export SPM12_ROOT=/opt/gridware/apps/binapps/matlab/third_party_toolboxes/spm/12
 mkdir $SPM12_ROOT
 cp -r temp/spm12/* $SPM12_ROOT
 # So far this is the standard installation, i.e. not for compiled MATLAB.
-# See 12-r6906-compile.md for instructions on how to compile the toolbox.
+# See compile.md for instructions on how to compile the toolbox.
