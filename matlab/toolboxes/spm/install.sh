@@ -1,13 +1,22 @@
 # Official instructions are here: https://en.wikibooks.org/wiki/SPM/Installation_on_64bit_Linux#Installation
 
-# Standard installation - not suitable for CSF
-# =================================================
-# Start in home directory on CSF
-wget http://www.fil.ion.ucl.ac.uk/spm/download/restricted/eldorado/spm12.zip
-mkdir temp
-unzip spm12.zip -d temp/ # Unzip to temporary location to avoid overwriting previous installation
-export SPM12_ROOT=/opt/gridware/apps/binapps/matlab/third_party_toolboxes/spm/12-r6906
-mkdir $SPM12_ROOT
-cp -r temp/spm12/* $SPM12_ROOT
+# Standard installation - users should compile a standalone version on CSF.
+# =========================================================================
+VER=12.5
+SPM_ROOT=/opt/apps/apps/binapps/matlab/third-party-toolboxes/spm
+INSTALL_DIR=/opt/apps/apps/binapps/matlab/third-party-toolboxes/spm/${VER}
+cd ${SPM_ROOT}
+ZIP_FILE=${SPM_ROOT}/spm${VER}.zip
+
+if [ ! -f "${ZIP_FILE}" ]; then
+  wget http://www.fil.ion.ucl.ac.uk/spm/download/restricted/eldorado/spm${VER}.zip
+fi
+
+if [ ! -d "${INSTALL_DIR}" ]; then
+  unzip spm${VER}.zip -d ${INSTALL_DIR}
+else
+  echo "Installation directory already exists: ${INSTALL_DIR}"
+  echo "Installation aborted"
+fi
 # So far this is the standard installation, i.e. not for compiled MATLAB.
 # See compile.md for instructions on how to compile the toolbox.
