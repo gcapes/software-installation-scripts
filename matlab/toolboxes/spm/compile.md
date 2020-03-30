@@ -1,6 +1,6 @@
 # Compilation instructions for standalone version
-The toolbox cannot just be included using mcc -a <toolboxpath> as you might normally do.
-The SPM toolbox files are given as .p files rather than .m files, but the toolbox has a
+The toolbox cannot just be included using `mcc -a <toolboxpath>` as you might normally do.
+The SPM toolbox files are given as `.p` files rather than `.m` files, but the toolbox has a
 compiler script to create a standalone version of the toolbox.
 In order to compile a standalone version of the toolbox, you should open the MATLAB GUI,
 navigate to the `config` directory, then run `spm_make_standalone`.
