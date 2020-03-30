@@ -7,13 +7,16 @@ SPM_ROOT=/opt/apps/apps/binapps/matlab/third-party-toolboxes/spm
 INSTALL_DIR=/opt/apps/apps/binapps/matlab/third-party-toolboxes/spm/${VER}
 cd ${SPM_ROOT}
 ZIP_FILE=${SPM_ROOT}/spm${VER}.zip
+TEMP=${SPM_ROOT}/temp
 
 if [ ! -f "${ZIP_FILE}" ]; then
   wget http://www.fil.ion.ucl.ac.uk/spm/download/restricted/eldorado/spm${VER}.zip
 fi
 
 if [ ! -d "${INSTALL_DIR}" ]; then
-  unzip spm${VER}.zip -d ${INSTALL_DIR}
+  unzip -q spm${VER}.zip -d ${TEMP}
+  mv ${TEMP}/spm12 ${INSTALL_DIR}
+  rmdir ${TEMP}
 else
   echo "Installation directory already exists: ${INSTALL_DIR}"
   echo "Installation aborted"
