@@ -37,6 +37,6 @@ USER_SCRIPT=/path/to/my_script.m
 On the CSF, the module file instructs users to copy the SPM toolbox directory to their scratch space,
 and to compile as above.
 
-## Template lob scripts
+## Template job scripts
 - [compilation script](compile.sh)
 - [job script](run.sh)
