@@ -4,7 +4,7 @@
 # =========================================================================
 VER=12.5
 SPM_ROOT=/opt/apps/apps/binapps/matlab/third-party-toolboxes/spm
-INSTALL_DIR=/opt/apps/apps/binapps/matlab/third-party-toolboxes/spm/${VER}
+INSTALL_DIR=${SPM_ROOT}/${VER}
 cd ${SPM_ROOT}
 ZIP_FILE=${SPM_ROOT}/spm${VER}.zip
 TEMP=${SPM_ROOT}/temp
