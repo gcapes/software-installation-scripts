@@ -5,11 +5,12 @@ function missing_toolboxes = are_toolboxes_installed(required_toolboxes)
     is_installed = false(length(required_toolboxes), 1);
     
     % Report installed toolboxes
+    fprintf('\nChecking for missing toolboxes:\n')
     for i = 1:length(required_toolboxes)
         toolbox = required_toolboxes(i);
         if any(installed_toolboxes == toolbox)
             is_installed(i) = true;
-            fprintf('%s is installed.\n', toolbox)
+            fprintf('\t%s is installed.\n', toolbox)
         end
     end
     
@@ -20,4 +21,6 @@ function missing_toolboxes = are_toolboxes_installed(required_toolboxes)
             toolbox = missing_toolboxes(i);
             fprintf("!! %s is not installed !!\n", toolbox)
         end
+    else
+        fprintf('\n\tNo missing toolboxes.\n')
     end
