@@ -20,7 +20,9 @@ feature_name = ["MATLAB", ...
     "Identification_Toolbox"];
 
 %% Is correct licence in use
-assert(license == "38995", "Incorrect licence number in use!")
+teaching_licence = "38995";
+assert(license == teaching_licence, "Incorrect licence number in use! Should be using %s instead of %s", teaching_licence, license)
+fprintf('Correct licence number in use: %s\n\n', license)
 
 %% Do licences exist
 licence_exists = do_licences_exist(feature_name);

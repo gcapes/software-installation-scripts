@@ -39,7 +39,10 @@ if computer('arch') == "win64"
 end
 
 %% Is correct licence in use
-assert(license == "1560", "Incorrect licence number in use!")
+research_licence = "1560";
+message = sprintf("Incorrect licence number in use! Should be using %s instead of %s", research_licence, license);
+assert(license == research_licence, message)
+fprintf('Correct licence number in use: %s\n\n', license)
 
 %% Do licences exist
 licence_exists = do_licences_exist(feature_name);
