@@ -37,10 +37,10 @@ ${BASE_FILENAME}%.iso: ${ISO_DIR}/iso% copy
 .PHONY: copy
 copy: ${INSTALLER_DIR} ${ISO_DIRS} ${INSTALL_SCRIPT_COPY}
 	rsync ${INSTALL_SCRIPT_COPY} ${ISO1}
-	rsync -a ${INSTALLER_DIR}/ ${ISO1_SUB} --exclude archives
+	rsync -a ${INSTALLER_DIR}/ ${ISO1_SUB} --exclude /archives
 	rsync -a ${INSTALLER_DIR}/archives/common/examples ${ISO1}
-	rsync -a ${INSTALLER_DIR}/archives/common ${ISO2} --exclude examples
-	rsync -a ${INSTALLER_DIR}/archives ${ISO3} --exclude common
+	rsync -a ${INSTALLER_DIR}/archives/common ${ISO2} --exclude common/examples
+	rsync -a ${INSTALLER_DIR}/archives ${ISO3} --exclude archives/common
 
 ${INSTALL_SCRIPT_COPY}: ${INSTALL_SCRIPT}
 	cp ${INSTALL_SCRIPT} $@
