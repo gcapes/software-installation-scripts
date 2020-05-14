@@ -19,7 +19,8 @@ else
 endif
 
 INSTALL_SCRIPT=./${VER}/${OS}/install.${EXT}
-INSTALL_SCRIPT_COPY=${INSTALLER_DIR}/install.${EXT}
+INSTALLER_INPUT=./${VER}/${OS}/installer_input.txt
+LICENCE_FILE=./research-network.lic
 
 ISO1=${ISO_DIR}/iso1
 ISO1_SUB=${ISO1}/${VER}
@@ -35,15 +36,15 @@ ${BASE_FILENAME}%.iso: ${ISO_DIR}/iso% copy
 	genisoimage -f -r -U -J -joliet-long -allow-lowercase -allow-multidot -o $@ $<
 
 .PHONY: copy
-copy: ${INSTALLER_DIR} ${ISO_DIRS} ${INSTALL_SCRIPT_COPY}
-	rsync ${INSTALL_SCRIPT_COPY} ${ISO1}
+copy: ${INSTALLER_DIR} ${ISO_DIRS} ${INSTALL_SCRIPT} ${INSTALLER_INPUT} ${LICENCE_FILE}
+	cp ${INSTALL_SCRIPT} ${ISO1}
+	cp ${LICENCE_FILE} ${ISO1_SUB}/network.lic
 	rsync -a ${INSTALLER_DIR}/ ${ISO1_SUB} --exclude /archives
+	# Overwrite original installer_input.txt
+	cp -f ${INSTALLER_INPUT} ${ISO1_SUB}
 	rsync -a ${INSTALLER_DIR}/archives/common/examples ${ISO1}
 	rsync -a ${INSTALLER_DIR}/archives/common ${ISO2} --exclude common/examples
 	rsync -a ${INSTALLER_DIR}/archives ${ISO3} --exclude archives/common
-
-${INSTALL_SCRIPT_COPY}: ${INSTALL_SCRIPT}
-	cp ${INSTALL_SCRIPT} $@
 
 .PHONY: dirs
 dirs: ${ISO_DIRS}
