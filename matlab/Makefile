@@ -7,7 +7,8 @@
 
 VER=R2020a
 MW=~/Downloads/MathWorks
-OS=linux
+# OS options are: (lin|mac|win)
+OS=lin
 INSTALLER_DIR=${MW}/${VER}-${OS}
 ISO_DIR=${MW}/${VER}-${OS}-for-iso
 
