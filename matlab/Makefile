@@ -13,10 +13,13 @@ INSTALLER_DIR=${MW}/${VER}-${OS}
 ISO_DIR=${MW}/${VER}-${OS}-for-iso
 
 ifneq (, $(findstring win, ${OS}))
-    INSTALL_SCRIPT=${INSTALLER_DIR}/install.bat
+    EXT=bat
 else
-    INSTALL_SCRIPT=${INSTALLER_DIR}/install.sh
+    EXT=sh
 endif
+
+INSTALL_SCRIPT=./${VER}/${OS}/install.${EXT}
+INSTALL_SCRIPT_COPY=${INSTALLER_DIR}/install.${EXT}
 
 ISO1=${ISO_DIR}/iso1
 ISO1_SUB=${ISO1}/${VER}
@@ -32,18 +35,15 @@ ${BASE_FILENAME}%.iso: ${ISO_DIR}/iso% copy
 	genisoimage -f -r -U -J -joliet-long -allow-lowercase -allow-multidot -o $@ $<
 
 .PHONY: copy
-copy: ${INSTALLER_DIR} ${ISO_DIRS} ${INSTALL_SCRIPT}
-	rsync ${INSTALL_SCRIPT} ${ISO1}
+copy: ${INSTALLER_DIR} ${ISO_DIRS} ${INSTALL_SCRIPT_COPY}
+	rsync ${INSTALL_SCRIPT_COPY} ${ISO1}
 	rsync -a ${INSTALLER_DIR}/ ${ISO1_SUB} --exclude archives
 	rsync -a ${INSTALLER_DIR}/archives/common/examples ${ISO1}
 	rsync -a ${INSTALLER_DIR}/archives/common ${ISO2} --exclude examples
 	rsync -a ${INSTALLER_DIR}/archives ${ISO3} --exclude common
 
-${INSTALL_SCRIPT}:
-	@echo ================================================================================
-	@echo $@ is missing! 
-	@echo ================================================================================
-	@false
+${INSTALL_SCRIPT_COPY}: ${INSTALL_SCRIPT}
+	cp ${INSTALL_SCRIPT} $@
 
 .PHONY: dirs
 dirs: ${ISO_DIRS}
