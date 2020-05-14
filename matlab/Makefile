@@ -28,7 +28,7 @@ BASE_FILENAME=${ISO_DIR}/MATLAB-${VER}-${OS}-
 .PHONY: isos
 isos: $(addsuffix .iso, $(addprefix ${BASE_FILENAME}, 1 2 3))
 
-${BASE_FILENAME}%.iso: ${ISO_DIR}/iso%
+${BASE_FILENAME}%.iso: ${ISO_DIR}/iso% copy
 	genisoimage -f -r -U -J -joliet-long -allow-lowercase -allow-multidot -o $@ $<
 
 .PHONY: copy
