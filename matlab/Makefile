@@ -26,30 +26,30 @@ ISO1=${ISO_DIR}/iso1
 ISO1_SUB=${ISO1}/${VER}
 ISO2=${ISO_DIR}/iso2
 ISO3=${ISO_DIR}/iso3
-ISO_DIRS=${ISO1} ${ISO1_SUB} ${ISO2} ${ISO3}
 
 BASE_FILENAME=${ISO_DIR}/MATLAB-${VER}-${OS}-
 .PHONY: isos
 isos: $(addsuffix .iso, $(addprefix ${BASE_FILENAME}, 1 2 3))
 
-${BASE_FILENAME}%.iso: ${ISO_DIR}/iso% copy
+${BASE_FILENAME}%.iso: ${ISO_DIR}/iso%
 	genisoimage -f -r -U -J -joliet-long -allow-lowercase -allow-multidot -o $@ $<
 
-.PHONY: copy
-copy: ${INSTALLER_DIR} ${ISO_DIRS} ${INSTALL_SCRIPT} ${INSTALLER_INPUT} ${LICENCE_FILE}
+.PHONY: dirs
+dirs: ${ISO1} ${ISO1_SUB} ${ISO2} ${ISO3}
+
+${ISO_DIR}/iso1: ${INSTALLER_DIR} ${INSTALL_SCRIPT} ${INSTALLER_INPUT} ${LICENCE_FILE}
+	mkdir -p $@
 	cp ${INSTALL_SCRIPT} ${ISO1}
 	cp ${LICENCE_FILE} ${ISO1_SUB}/network.lic
 	rsync -a ${INSTALLER_DIR}/ ${ISO1_SUB} --exclude /archives
 	cp -f ${INSTALLER_INPUT} ${ISO1_SUB}
 	rsync -a ${INSTALLER_DIR}/archives/common/examples ${ISO1}
+
+${ISO_DIR}/iso2: ${INSTALLER_DIR}
 	rsync -a ${INSTALLER_DIR}/archives/common ${ISO2} --exclude common/examples
+
+${ISO_DIR}/iso3: ${INSTALLER_DIR}
 	rsync -a ${INSTALLER_DIR}/archives ${ISO3} --exclude archives/common
-
-.PHONY: dirs
-dirs: ${ISO_DIRS}
-
-${ISO_DIR}/iso%:
-	mkdir -p $@
 
 .PHONY: clean
 clean:
