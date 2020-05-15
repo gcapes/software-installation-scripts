@@ -40,7 +40,6 @@ copy: ${INSTALLER_DIR} ${ISO_DIRS} ${INSTALL_SCRIPT} ${INSTALLER_INPUT} ${LICENC
 	cp ${INSTALL_SCRIPT} ${ISO1}
 	cp ${LICENCE_FILE} ${ISO1_SUB}/network.lic
 	rsync -a ${INSTALLER_DIR}/ ${ISO1_SUB} --exclude /archives
-	# Overwrite original installer_input.txt
 	cp -f ${INSTALLER_INPUT} ${ISO1_SUB}
 	rsync -a ${INSTALLER_DIR}/archives/common/examples ${ISO1}
 	rsync -a ${INSTALLER_DIR}/archives/common ${ISO2} --exclude common/examples
