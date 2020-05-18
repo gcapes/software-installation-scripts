@@ -38,7 +38,7 @@ ${BASE_FILENAME}%.iso: ${ISO_DIR}/iso%
 dirs: ${ISO1} ${ISO1_SUB} ${ISO2} ${ISO3}
 
 ${ISO_DIR}/iso1: ${INSTALLER_DIR} ${INSTALL_SCRIPT} ${INSTALLER_INPUT} ${LICENCE_FILE}
-	mkdir -p $@
+	mkdir -p ${ISO1_SUB}
 	cp ${INSTALL_SCRIPT} ${ISO1}
 	cp ${LICENCE_FILE} ${ISO1_SUB}/network.lic
 	rsync -a ${INSTALLER_DIR}/ ${ISO1_SUB} --exclude /archives
