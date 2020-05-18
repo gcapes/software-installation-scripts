@@ -14,6 +14,7 @@ ISO_DIR=${MW}/${VER}-${OS}-for-iso
 
 ifneq (, $(findstring win, ${OS}))
     EXT=bat
+    NAG=~/Downloads/mbw6i25ddl_setup.exe
 else
     EXT=sh
 endif
@@ -44,6 +45,9 @@ ${ISO_DIR}/iso1: ${INSTALLER_DIR} ${INSTALL_SCRIPT} ${INSTALLER_INPUT} ${LICENCE
 	rsync -a ${INSTALLER_DIR}/ ${ISO1_SUB} --exclude /archives
 	cp -f ${INSTALLER_INPUT} ${ISO1_SUB}
 	rsync -a ${INSTALLER_DIR}/archives/common/examples ${ISO1}
+    ifdef NAG
+	cp ${NAG} ${ISO1}
+    endif
 
 ${ISO_DIR}/iso2: ${INSTALLER_DIR}
 	rsync -a ${INSTALLER_DIR}/archives/common ${ISO2} --exclude common/examples
