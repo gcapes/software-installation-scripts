@@ -11,6 +11,8 @@ MW=~/Downloads/MathWorks
 OS=lin
 INSTALLER_DIR=${MW}/${VER}-${OS}
 ISO_DIR=${MW}/${VER}-${OS}-for-iso
+MAKEFILE_DIR_WITH_SLASH=$(dir $(realpath $(firstword $(MAKEFILE_LIST))))
+MAKEFILE_DIR=$(patsubst %/,%,${MAKEFILE_DIR_WITH_SLASH})
 
 ifneq (, $(findstring win, ${OS}))
     EXT=bat
@@ -19,9 +21,9 @@ else
     EXT=sh
 endif
 
-INSTALL_SCRIPT=./${VER}/${OS}/install.${EXT}
-INSTALLER_INPUT=./${VER}/${OS}/installer_input.txt
-LICENCE_FILE=./research-network.lic
+INSTALL_SCRIPT=${MAKEFILE_DIR}/${VER}/${OS}/install.${EXT}
+INSTALLER_INPUT=${MAKEFILE_DIR}/${VER}/${OS}/installer_input.txt
+LICENCE_FILE=${MAKEFILE_DIR}/research-network.lic
 
 ISO1=${ISO_DIR}/iso1
 ISO1_SUB=${ISO1}/${VER}
