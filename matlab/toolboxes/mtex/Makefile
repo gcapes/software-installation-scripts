@@ -7,7 +7,7 @@
 # and create some extra files and directories, so it's best to create a new
 # temporary directory before running this makefile.
 
-MTEX_VER=5.3
+MTEX_VER=5.3.1
 NFFT_VER=3.5.1
 MTEX_TOP=/opt/apps/apps/binapps/matlab/third-party-toolboxes/mtex
 MTEX_DIR=${MTEX_TOP}/${MTEX_VER}
