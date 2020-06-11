@@ -1,2 +1,2 @@
 #!/bin/bash
-mcc -R -singleCompThread -m $1 $(cat $MTEX_INCLUDE)
+mcc -R -singleCompThread -m $1 $(cat $MTEX_INCLUDE | envsubst)
