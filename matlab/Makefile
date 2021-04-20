@@ -6,7 +6,7 @@
 # (to recombine the isos and run the MATLAB installer) are copied from the git repo
 # containing this Makefile.
 
-VER=R2020a
+VER=R2021a
 MW=~/Downloads/MathWorks
 # OS options are: (lin|mac|win)
 OS=lin
