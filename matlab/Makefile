@@ -1,10 +1,10 @@
 # Makefile to split up the MATLAB installer into chunks suitable for iso files for ESD.
 
-# This requires you to have downloaded the installer files,
-# and use the dirctory naming convention Downloads/MathWorks/RXXXX-OperatingSystem.
-# The network.lic file and the installer.sh or installer.bat file
-# (to recombine the isos and run the MATLAB installer) are copied from the git repo
-# containing this Makefile.
+# Prerequisites:
+# Download the installer files, using the directory naming convention ~/Downloads/MathWorks/RXXXX-OperatingSystem.
+# Update the installer.sh and installer.bat files in this repo for the current year's release.
+# Prepare the installer_input.txt files with this year's FIK and release numbers.
+# You should also download the Windows NAG toolbox installer to your downloads directory.
 
 VER=R2021a
 MW=~/Downloads/MathWorks
