@@ -2,8 +2,9 @@
 
 # This requires you to have downloaded the installer files,
 # and use the dirctory naming convention Downloads/MathWorks/RXXXX-OperatingSystem.
-# You should also first put the network.lic file and the installer.sh or installer.bat file
-# (to recombine the isos and run the MATLAB installer) in the top level directory.
+# The network.lic file and the installer.sh or installer.bat file
+# (to recombine the isos and run the MATLAB installer) are copied from the git repo
+# containing this Makefile.
 
 VER=R2020a
 MW=~/Downloads/MathWorks
