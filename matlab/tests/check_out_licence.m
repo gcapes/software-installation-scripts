@@ -2,7 +2,7 @@ function check_out_success = check_out_licence(feature_names)
     %CHECK_OUT_LICENCE    Attempt to check out licence for *feature_names*
     
     check_out_success = false(length(feature_names), 1);
-    
+    fprintf("\n")
     for i = 1:length(feature_names)
         toolbox = feature_names(i);
         if license('checkout', toolbox) == 1
