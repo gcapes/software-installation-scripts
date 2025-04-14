@@ -3,7 +3,7 @@
 which can't be compiled.
 - Include the `mtex/data` directory using `-a` when compiling
 - Also include all the directories that the setup scripts add to the path, using `-I`
-- See mtex-csf repo on UoMResearchIT github.
+- See [mtex-csf](https://github.com/UoMResearchIT/mtex-csf) repo on UoMResearchIT github.
 
 ## startup
 ### Remove
